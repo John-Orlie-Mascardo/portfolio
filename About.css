@@ -1,13 +1,21 @@
 .body {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 
-.name {
-    color: lightblue;
+.homepagetextcolor{
+    color: white;
+}
+.techstacktextcolor{
+    color: white;
+}
+.abouttextcolor{
+    color: white;
 }
 
-.intro {
-    color: lightblue; 
+.HeaderHomePage{
+    background-color: #000000;
+    color: white; 
+    padding: 20px;
 }
 .homepage {
     width: 100px;
