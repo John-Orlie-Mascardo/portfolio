@@ -1,0 +1,36 @@
+.body {
+    background-color: black;
+}
+
+.name {
+    color: lightblue;
+}
+
+.intro {
+    color: lightblue; 
+}
+.homepage {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 10px; 
+    left: 40%; 
+    transform: translateX(-50%);    
+}
+.about {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 10px; 
+    left: 52%; 
+    transform: translateX(-50%);    
+}
+
+.techstack {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 10px; 
+    left: 46%; 
+    transform: translateX(-50%);    
+}

@@ -9,12 +9,20 @@
 .intro {
     color: lightblue; 
 }
+.homepage {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 10px; 
+    left: 40%; 
+    transform: translateX(-50%);    
+}
 .about {
     width: 100px;
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 53%; 
+    left: 52%; 
     transform: translateX(-50%);    
 }
 
@@ -23,6 +31,6 @@
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 43%; 
+    left: 46%; 
     transform: translateX(-50%);    
 }
