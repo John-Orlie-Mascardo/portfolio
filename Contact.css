@@ -10,6 +10,25 @@
 .contacttextcolor{
     color: rgb(255, 255, 255);
 }
+.all{
+    color: white;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    height: 50vh; 
+    margin-top: 10vh;
+}
+
+.linkedin, .fb {
+    margin-bottom: 10px;
+    width: 80px; 
+    height: 80px;
+    object-fit: cover;
+}
 .homepage {
     width: 100px;
     height: 100px;
