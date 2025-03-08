@@ -1,18 +1,14 @@
-.body {
-    background-color: rgb(255, 255, 255);
-}
-
 .homepagetextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(243, 243, 243);
 }
 .techstacktextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(250, 250, 250);
 }
 .abouttextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .contacttextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .homepage {
     width: 100px;
@@ -56,4 +52,22 @@
     position: absolute;
     width: 100%;
     height: 100%;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    height: 50vh; 
+}
+.aboutme{
+    width: max-content;
+    height: fit-content;
+    color: white;
+}
+.like{
+    width: max-content;
+    height: fit-content;
+    color: white;
 }

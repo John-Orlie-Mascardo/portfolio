@@ -6,13 +6,13 @@
     <title>My Website</title>
     <link rel="stylesheet" href="About.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 </head>
 <body class="body">
     <div id="ring"></div>
     <script>
         window.addEventListener("DOMContentLoaded", () => {
-            VANTA.CELLS({
+            VANTA.WAVES({
             el: "#ring",
             mouseControls: true,
             touchControls: true,
@@ -20,7 +20,12 @@
             minHeight: 200.00,
             minWidth: 200.00,
             scale: 1.00,
-            scaleMobile: 1.00
+            scaleMobile: 1.00,
+            color: 0x22252d,
+            shininess: 11.00,
+            waveHeight: 16.00,
+            waveSpeed: 1.10,
+            zoom: 0.76
             })
         })
     </script>
@@ -42,5 +47,24 @@
             </div>
         </nav>
     </header>
+
+    <main class="all">
+        <div class="aboutme">
+            <h1>
+                About Me!
+            </h1> 
+            <p>
+                I'm a BSIT student at St. Dominic College of Asia and currently at 2nd year. 
+            </p>
+        </div>
+        <div class="like">
+            <h2 >
+                What I do? What I like?
+            </h2>
+            <p>
+                I like sleeping and listening to rnb musics! I also love training badminton, running, and weight lifting.
+            </p>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,18 +1,14 @@
-.body {
-    background-color: rgb(255, 255, 255);
-}
-
 .homepagetextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(243, 243, 243);
 }
 .techstacktextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(250, 250, 250);
 }
 .abouttextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .contacttextcolor{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .homepage {
     width: 100px;
