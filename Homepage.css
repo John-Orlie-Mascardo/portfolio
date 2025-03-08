@@ -26,6 +26,9 @@
     text-align: center;
     height: 50vh; 
 }
+.container{
+    box-sizing: border-box;
+}
 
 .profile {
     width: 150px; 
