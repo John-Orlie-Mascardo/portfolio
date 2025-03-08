@@ -50,12 +50,14 @@
     width: 100px; 
     height: 100px;
     object-fit: cover;
+    margin-right: 15px;
     margin-bottom: 10px;
 }
 .intellij{
     width: 100px; 
     height: 100px;
     object-fit: cover;
+    margin-right: 15px;
     margin-bottom: 10px;
 }
 .androidstudio{
