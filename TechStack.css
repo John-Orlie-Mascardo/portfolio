@@ -10,6 +10,26 @@
 .contacttextcolor{
     color: rgb(255, 255, 255);
 }
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    height: 50vh; 
+}
+.java{
+    width: 100px; 
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px; 
+}
+.c{
+    width: 100px; 
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px; 
+}
 .homepage {
     width: 100px;
     height: 100px;
