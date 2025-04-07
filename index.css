@@ -15,7 +15,7 @@
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 40%; 
+    left: 42%; 
     transform: translateX(-50%);    
 }
 .container {
@@ -56,7 +56,7 @@
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 46%; 
+    left: 48%; 
     transform: translateX(-50%);    
 }
 
@@ -65,7 +65,7 @@
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 51%; 
+    left: 53%; 
     transform: translateX(-50%);    
 }
 
@@ -74,7 +74,7 @@
     height: 100px;
     position: absolute; 
     top: 10px; 
-    left: 58%; 
+    left: 60%; 
     transform: translateX(-50%);   
 }
 
