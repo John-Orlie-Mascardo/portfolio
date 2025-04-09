@@ -1,48 +1,34 @@
-.homepagetextcolor{
-    color: rgb(243, 243, 243);
+/* Base Styles */
+.homepagetextcolor { color: rgb(243, 243, 243); }
+.techstacktextcolor { color: rgb(250, 250, 250); }
+.abouttextcolor { color: rgb(255, 255, 255); }
+.contacttextcolor { color: rgb(255, 255, 255); }
+
+.homepage, .about, .techstack, .contact {
+    position: absolute;
+    top: 10px;
+    height: 100px;
+    transform: translateX(-50%);
 }
-.techstacktextcolor{
-    color: rgb(250, 250, 250);
-}
-.abouttextcolor{
-    color: rgb(255, 255, 255);
-}
-.contacttextcolor{
-    color: rgb(255, 255, 255);
-}
+
 .homepage {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 40%; 
-    transform: translateX(-50%);    
+    left: 42%;
 }
+
 .about {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 46%; 
-    transform: translateX(-50%);    
+    left: 48%;
 }
 
 .techstack {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 51%; 
-    transform: translateX(-50%);    
+    left: 53%;
 }
 
 .contact {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 58%; 
-    transform: translateX(-50%);   
+    left: 60%;
 }
 
 #ring {
@@ -53,21 +39,104 @@
     width: 100%;
     height: 100%;
 }
-.all{
+
+.all {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    height: 50vh; 
+    height: 50vh;
 }
-.aboutme{
+
+.aboutme, .like {
     width: max-content;
     height: fit-content;
     color: white;
 }
-.like{
-    width: max-content;
-    height: fit-content;
-    color: white;
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    /* Adjust navigation spacing for large laptops */
+    .homepage { left: 38%; }
+    .about { left: 45%; }
+    .techstack { left: 50%; }
+    .contact { left: 57%; }
+}
+
+@media (max-width: 992px) {
+    /* Tablet landscape adjustments */
+    .homepage { left: 35%; }
+    .about { left: 43%; }
+    .techstack { left: 49%; }
+    .contact { left: 56%; }
+    
+    .all {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablet portrait adjustments */
+    .homepage, .about, .techstack, .contact {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .homepage { left: 30%; }
+    .about { left: 40%; }
+    .techstack { left: 47%; }
+    .contact { left: 55%; }
+    
+    .all {
+        height: 70vh;
+    }
+    
+    .aboutme, .like {
+        width: 90%;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile landscape adjustments */
+    .homepage, .about, .techstack, .contact {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 10px;
+        padding: 5px 0;
+    }
+    
+    .all {
+        height: auto;
+        padding: 40px 20px;
+        margin-top: 60px;
+    }
+    
+    .aboutme, .like {
+        width: 95%;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Small mobile adjustments */
+    .all {
+        padding: 30px 15px;
+        margin-top: 50px;
+    }
+    
+    .aboutme, .like {
+        font-size: 0.9em;
+    }
+    
+    .homepage, .about, .techstack, .contact {
+        margin: 0 5px;
+        font-size: 0.9em;
+    }
 }

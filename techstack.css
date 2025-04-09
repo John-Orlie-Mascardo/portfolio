@@ -1,105 +1,47 @@
-.homepagetextcolor{
-    color: rgb(243, 243, 243);
-}
-.techstacktextcolor{
-    color: rgb(250, 250, 250);
-}
-.abouttextcolor{
-    color: rgb(255, 255, 255);
-}
-.contacttextcolor{
-    color: rgb(255, 255, 255);
-}
-.all{
+/* Base Styles */
+.homepagetextcolor { color: rgb(243, 243, 243); }
+.techstacktextcolor { color: rgb(250, 250, 250); }
+.abouttextcolor { color: rgb(255, 255, 255); }
+.contacttextcolor { color: rgb(255, 255, 255); }
+
+.all {
     color: white;
-}
-.all{
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
     text-align: center;
-    height: 50vh; 
+    height: auto;
+    min-height: 50vh;
     margin-top: 10vh;
 }
-.java{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px; 
-}
-.c{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px; 
-}
-.html{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px; 
-}
-.css{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px; 
-}
-.vsstudio{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
-    margin-bottom: 10px;
-}
-.intellij{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-right: 15px;
-    margin-bottom: 10px;
-}
-.androidstudio{
-    width: 100px; 
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-.homepage {
+
+/* Tech Stack Icons */
+.java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
     width: 100px;
     height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 40%; 
-    transform: translateX(-50%);    
-}
-.about {
-    width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 46%; 
-    transform: translateX(-50%);    
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
-.techstack {
-    width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 51%; 
-    transform: translateX(-50%);    
+.vsstudio, .intellij {
+    margin-right: 15px;
 }
 
-.contact {
+/* Navigation */
+.homepage, .about, .techstack, .contact {
     width: 100px;
     height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 58%; 
-    transform: translateX(-50%);   
+    position: absolute;
+    top: 10px;
+    transform: translateX(-50%);
 }
+
+.homepage { left: 40%; }
+.about { left: 46%; }
+.techstack { left: 51%; }
+.contact { left: 58%; }
 
 #ring {
     z-index: -1;
@@ -108,4 +50,125 @@
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.techtitle {
+    margin-top: 50px; /* Pushes the title down */
+    margin-bottom: 30px; /* Adds space below the title */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    /* Adjust navigation for large laptops */
+    .homepage { left: 38%; }
+    .about { left: 44%; }
+    .techstack { left: 50%; }
+    .contact { left: 56%; }
+}
+
+@media (max-width: 992px) {
+    /* Tablet landscape */
+    .homepage { left: 35%; }
+    .about { left: 42%; }
+    .techstack { left: 48%; }
+    .contact { left: 55%; }
+    
+    .all {
+        margin-top: 15vh;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablet portrait */
+    .homepage, .about, .techstack, .contact {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .homepage { left: 30%; }
+    .about { left: 40%; }
+    .techstack { left: 47%; }
+    .contact { left: 54%; }
+    
+    /* Tech stack icons */
+    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .vsstudio, .intellij {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Mobile landscape */
+    .homepage, .about, .techstack, .contact {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .homepage { left: 25%; }
+    .about { left: 38%; }
+    .techstack { left: 46%; }
+    .contact { left: 53%; }
+    
+    .all {
+        height: auto;
+        padding: 40px 0;
+        margin-top: 20vh;
+    }
+    
+    /* Stack tech icons vertically */
+    .tech-icons-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .vsstudio, .intellij {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile portrait */
+    .homepage, .about, .techstack, .contact {
+        width: 60px;
+        height: 60px;
+        top: 5px;
+    }
+    
+    .homepage { left: 20%; }
+    .about { left: 35%; }
+    .techstack { left: 45%; }
+    .contact { left: 52%; }
+    
+    /* Make tech icons smaller */
+    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .all {
+        margin-top: 15vh;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Small mobile devices */
+    .homepage, .about, .techstack, .contact {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .homepage { left: 15%; }
+    .about { left: 32%; }
+    .techstack { left: 43%; }
+    .contact { left: 50%; }
+    
+    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
+        width: 50px;
+        height: 50px;
+    }
 }

@@ -1,81 +1,59 @@
-.homepagetextcolor{
-    color: rgb(243, 243, 243);
+/* Your existing styles */
+.homepagetextcolor { color: rgb(243, 243, 243); }
+.techstacktextcolor { color: rgb(250, 250, 250); }
+.abouttextcolor { color: rgb(255, 255, 255); }
+.contacttextcolor { color: rgb(255, 255, 255); }
+
+.homepage, .about, .techstack, .contact {
+    position: absolute;
+    top: 10px;
+    height: 100px;
+    transform: translateX(-50%);
 }
-.techstacktextcolor{
-    color: rgb(250, 250, 250);
-}
-.abouttextcolor{
-    color: rgb(255, 255, 255);
-}
-.contacttextcolor{
-    color: rgb(255, 255, 255);
-}
+
 .homepage {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 42%; 
-    transform: translateX(-50%);    
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    text-align: center;
-    height: 50vh; 
-}
-.container{
-    box-sizing: border-box;
+    left: 42%;
 }
 
-.profile {
-    width: 150px; 
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px; 
-}
-
-.name {
-    color: rgb(248, 243, 243);
-    width: 300px;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.intro {
-    color: rgb(248, 243, 243);
-    width: 300px; 
-    height: auto;
-    margin-bottom: 10px;
-}
 .about {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 48%; 
-    transform: translateX(-50%);    
+    left: 48%;
 }
 
 .techstack {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 53%; 
-    transform: translateX(-50%);    
+    left: 53%;
 }
 
 .contact {
     width: 100px;
-    height: 100px;
-    position: absolute; 
-    top: 10px; 
-    left: 60%; 
-    transform: translateX(-50%);   
+    left: 60%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+    box-sizing: border-box;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.name, .intro {
+    color: rgb(248, 243, 243);
+    width: 300px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 #ring {
@@ -85,4 +63,69 @@
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    /* Adjust navigation for tablets */
+    .homepage { left: 35%; }
+    .about { left: 45%; }
+    .techstack { left: 55%; }
+    .contact { left: 65%; }
+}
+
+@media (max-width: 768px) {
+    /* Stack navigation vertically on smaller tablets */
+    .homepage, .about, .techstack, .contact {
+        position: relative;
+        display: block;
+        width: auto;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        text-align: center;
+        margin: 5px 0;
+        padding: 10px;
+    }
+    
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+    
+    .profile {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .name, .intro {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile phone adjustments */
+    .profile {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .name, .intro {
+        font-size: 0.9em;
+    }
+    
+    /* Make navigation more compact */
+    .homepage, .about, .techstack, .contact {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 320px) {
+    /* Extra small devices */
+    .name, .intro {
+        font-size: 0.8em;
+    }
 }
