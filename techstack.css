@@ -38,10 +38,25 @@
     transform: translateX(-50%);
 }
 
-.homepage { left: 40%; }
-.about { left: 46%; }
-.techstack { left: 51%; }
-.contact { left: 58%; }
+.homepage {
+    width: 100px;
+    left: 42%;
+}
+
+.about {
+    width: 100px;
+    left: 48%;
+}
+
+.techstack {
+    width: 100px;
+    left: 53%;
+}
+
+.contact {
+    width: 100px;
+    left: 60%;
+}
 
 #ring {
     z-index: -1;
