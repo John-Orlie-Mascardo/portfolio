@@ -1,88 +1,131 @@
-/* Base Styles */
+/* ===== Base Styles ===== */
 .homepagetextcolor { color: rgb(243, 243, 243); }
 .techstacktextcolor { color: rgb(250, 250, 250); }
-.abouttextcolor { color: rgb(255, 255, 255); }
-.contacttextcolor { color: rgb(255, 255, 255); }
+.abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
+/* Main Content */
 .all {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     height: auto;
-    min-height: 50vh;
-    margin-top: 10vh;
+    min-height: 40vh;
+    margin-top: 5vh;
 }
 
-/* Tech Stack Icons */
-.java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+.techtitle {
+    margin: 10px 0 10px;
+    font-size: 2.5rem;
+}
+
+/* Tech Stack Sections */
+.tech-section {
+    margin: 8px 0;
+    width: 100%;
+    padding: 4px 0;
+}
+
+.tech-section h2 {
     margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #f0f0f0;
 }
 
-.vsstudio, .intellij {
-    margin-right: 15px;
+/* Specific section adjustments */
+.proglang .tech-images {
+    background-color: rgba(40, 40, 50, 0.3);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.frontend .tech-images {
+    background-color: rgba(50, 40, 60, 0.3);
+    padding: 4px;
+    border-radius: 10x;
+}
+
+.IDEs .tech-images {
+    background-color: rgba(40, 50, 60, 0.3);
+    padding: 4px;
+    border-radius: 15px;
+}
+
+/* Tech Stack Images Container */
+.tech-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 15px;
+}
+
+/* Individual Tech Images */
+.tech-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tech-img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Navigation */
-.homepage, .about, .techstack, .contact {
+.nav-item {
     width: 100px;
     height: 100px;
     position: absolute;
     top: 10px;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.homepage {
-    width: 100px;
-    left: 42%;
-}
+.homepage { left: 42%; }
+.about { left: 48%; }
+.techstack { left: 53%; }
+.contact { left: 60%; }
 
-.about {
-    width: 100px;
-    left: 48%;
-}
-
-.techstack {
-    width: 100px;
-    left: 53%;
-}
-
-.contact {
-    width: 100px;
-    left: 60%;
-}
-
+/* Background Element */
 #ring {
     z-index: -1;
-    top: 0%;
-    left: 0;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
 
-.techtitle {
-    margin-top: 50px; /* Pushes the title down */
-    margin-bottom: 30px; /* Adds space below the title */
-}
-
-/* Responsive Media Queries */
+/* ===== Responsive Adjustments ===== */
+/* Large laptops (992px - 1200px) */
 @media (max-width: 1200px) {
-    /* Adjust navigation for large laptops */
     .homepage { left: 38%; }
     .about { left: 44%; }
     .techstack { left: 50%; }
     .contact { left: 56%; }
+    
+    .tech-img {
+        width: 110px;
+        height: 110px;
+    }
 }
 
+/* Tablets (768px - 992px) */
 @media (max-width: 992px) {
-    /* Tablet landscape */
     .homepage { left: 35%; }
     .about { left: 42%; }
     .techstack { left: 48%; }
@@ -91,11 +134,20 @@
     .all {
         margin-top: 15vh;
     }
+    
+    .tech-img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .tech-images {
+        gap: 25px;
+    }
 }
 
+/* Small tablets (576px - 768px) */
 @media (max-width: 768px) {
-    /* Tablet portrait */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         width: 80px;
         height: 80px;
     }
@@ -105,20 +157,27 @@
     .techstack { left: 47%; }
     .contact { left: 54%; }
     
-    /* Tech stack icons */
-    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
-        width: 80px;
-        height: 80px;
+    .techtitle {
+        font-size: 2.2rem;
     }
     
-    .vsstudio, .intellij {
-        margin-right: 10px;
+    .tech-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .tech-img {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .tech-images {
+        gap: 20px;
     }
 }
 
+/* Mobile landscape (480px - 576px) */
 @media (max-width: 576px) {
-    /* Mobile landscape */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         width: 70px;
         height: 70px;
     }
@@ -129,26 +188,33 @@
     .contact { left: 53%; }
     
     .all {
-        height: auto;
-        padding: 40px 0;
+        padding: 30px 0;
         margin-top: 20vh;
     }
     
-    /* Stack tech icons vertically */
-    .tech-icons-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .techtitle {
+        font-size: 2rem;
+        margin: 30px 0 20px;
     }
     
-    .vsstudio, .intellij {
-        margin-right: 0;
+    .tech-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    
+    .tech-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .tech-images {
+        gap: 15px;
     }
 }
 
+/* Mobile portrait (360px - 480px) */
 @media (max-width: 480px) {
-    /* Mobile portrait */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         width: 60px;
         height: 60px;
         top: 5px;
@@ -159,20 +225,23 @@
     .techstack { left: 45%; }
     .contact { left: 52%; }
     
-    /* Make tech icons smaller */
-    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
-        width: 60px;
-        height: 60px;
+    .tech-img {
+        width: 70px;
+        height: 70px;
     }
     
     .all {
         margin-top: 15vh;
     }
+    
+    .tech-images {
+        gap: 10px;
+    }
 }
 
+/* Extra small devices (below 360px) */
 @media (max-width: 360px) {
-    /* Small mobile devices */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         width: 50px;
         height: 50px;
     }
@@ -182,8 +251,21 @@
     .techstack { left: 43%; }
     .contact { left: 50%; }
     
-    .java, .c, .html, .css, .vsstudio, .intellij, .androidstudio {
-        width: 50px;
-        height: 50px;
+    .techtitle {
+        font-size: 1.8rem;
+    }
+    
+    .tech-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .tech-img {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+    }
+    
+    .tech-images {
+        gap: 8px;
     }
 }

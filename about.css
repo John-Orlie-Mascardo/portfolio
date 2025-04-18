@@ -1,45 +1,23 @@
-/* Base Styles */
+/* ===== Base Styles ===== */
 .homepagetextcolor { color: rgb(243, 243, 243); }
 .techstacktextcolor { color: rgb(250, 250, 250); }
-.abouttextcolor { color: rgb(255, 255, 255); }
-.contacttextcolor { color: rgb(255, 255, 255); }
+.abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
-.homepage, .about, .techstack, .contact {
+/* Navigation */
+.nav-item {
     position: absolute;
     top: 10px;
     height: 100px;
     transform: translateX(-50%);
-}
-
-.homepage {
     width: 100px;
-    left: 42%;
 }
 
-.about {
-    width: 100px;
-    left: 48%;
-}
+.homepage { left: 42%; }
+.about { left: 48%; }
+.techstack { left: 53%; }
+.contact { left: 60%; }
 
-.techstack {
-    width: 100px;
-    left: 53%;
-}
-
-.contact {
-    width: 100px;
-    left: 60%;
-}
-
-#ring {
-    z-index: -1;
-    top: 0%;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
+/* Main Content */
 .all {
     display: flex;
     flex-direction: column;
@@ -47,25 +25,38 @@
     justify-content: center;
     text-align: center;
     height: 50vh;
+    box-sizing: border-box;
 }
 
 .aboutme, .like {
     width: max-content;
     height: fit-content;
     color: white;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Responsive Media Queries */
+/* Background Element */
+#ring {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== Responsive Adjustments ===== */
+/* Large laptops (1025px - 1200px) */
 @media (max-width: 1200px) {
-    /* Adjust navigation spacing for large laptops */
     .homepage { left: 38%; }
     .about { left: 45%; }
     .techstack { left: 50%; }
     .contact { left: 57%; }
 }
 
+/* Tablets (769px - 1024px) */
 @media (max-width: 992px) {
-    /* Tablet landscape adjustments */
     .homepage { left: 35%; }
     .about { left: 43%; }
     .techstack { left: 49%; }
@@ -76,9 +67,9 @@
     }
 }
 
+/* Small tablets (577px - 768px) */
 @media (max-width: 768px) {
-    /* Tablet portrait adjustments */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         width: 80px;
         height: 80px;
     }
@@ -94,13 +85,14 @@
     
     .aboutme, .like {
         width: 90%;
-        max-width: 500px;
+        padding: 0 20px;
     }
 }
 
+/* Mobile landscape (481px - 576px) */
 @media (max-width: 576px) {
-    /* Mobile landscape adjustments */
-    .homepage, .about, .techstack, .contact {
+    /* Convert navigation to horizontal inline */
+    .nav-item {
         position: relative;
         display: inline-block;
         width: auto;
@@ -124,8 +116,8 @@
     }
 }
 
+/* Mobile portrait (below 480px) */
 @media (max-width: 400px) {
-    /* Small mobile adjustments */
     .all {
         padding: 30px 15px;
         margin-top: 50px;
@@ -135,7 +127,7 @@
         font-size: 0.9em;
     }
     
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         margin: 0 5px;
         font-size: 0.9em;
     }

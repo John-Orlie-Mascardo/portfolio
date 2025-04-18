@@ -13,19 +13,19 @@
     <script>
         window.addEventListener("DOMContentLoaded", () => {
             VANTA.WAVES({
-            el: "#ring",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x22252d,
-            shininess: 11.00,
-            waveHeight: 16.00,
-            waveSpeed: 1.10,
-            zoom: 0.76
+                el: "#ring",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x22252d,
+                shininess: 11.00,
+                waveHeight: 16.00,
+                waveSpeed: 1.10,
+                zoom: 0.76
             })
         })
     </script>
@@ -34,11 +34,9 @@
             <div class="homepage"> 
                 <a class="homepagetextcolor" href="index.html">Homepage</a>
             </div>
-        
             <div class="techstack">
                 <a class="techstacktextcolor" href="techstack.html">Tech Stack</a>
             </div>
-        
             <div class="about"> 
                 <a class="abouttextcolor" href="about.html">About</a>
             </div>
@@ -49,30 +47,34 @@
     </header>
 
     <main class="all">
-        <h1 class = "techtitle">
-            My Tech Stack!!
-        </h1>
-        <div class="proglang">
-            <h2>
-                Programming Language
-            </h2>
-            <img src="Java-Logo.png" class="java">
-            <img src="c-programming.svg.png" class="c">
+        <h1 class="techtitle">My Tech Stack!!</h1>
+        
+        <!-- Programming Languages Section -->
+        <div class="tech-section proglang">
+            <h2>Programming Language</h2>
+            <div class="tech-images">
+                <img src="Java-Logo.png" class="tech-img" alt="Java Logo">
+                <img src="c-programming.svg.png" class="tech-img" alt="C Programming Logo">
+            </div>
         </div>
-        <div class="frontend">
-            <h2>
-                Frontend
-            </h2>
-            <img src="html.svg.png" class="html">
-            <img src="css.png" class="css">
+        
+        <!-- Frontend Section -->
+        <div class="tech-section frontend">
+            <h2>Frontend</h2>
+            <div class="tech-images">
+                <img src="html.svg.png" class="tech-img" alt="HTML Logo">
+                <img src="css.png" class="tech-img" alt="CSS Logo">
+            </div>
         </div>
-        <div class="IDEs">
-            <h2>
-                IDE
-            </h2>
-            <img src="visual-studio.png" class="vsstudio">
-            <img src="intellij.svg.png" class="intellij">
-            <img src="android-studio.svg.png" class="androidstudio">
+        
+        <!-- IDEs Section -->
+        <div class="tech-section IDEs">
+            <h2>IDE</h2>
+            <div class="tech-images">
+                <img src="visual-studio.png" class="tech-img" alt="Visual Studio Logo">
+                <img src="intellij.svg.png" class="tech-img" alt="IntelliJ Logo">
+                <img src="android-studio.svg.png" class="tech-img" alt="Android Studio Logo">
+            </div>
         </div>
     </main>
 </body>

@@ -1,36 +1,23 @@
-/* Your existing styles */
+/* ===== Base Styles ===== */
 .homepagetextcolor { color: rgb(243, 243, 243); }
 .techstacktextcolor { color: rgb(250, 250, 250); }
-.abouttextcolor { color: rgb(255, 255, 255); }
-.contacttextcolor { color: rgb(255, 255, 255); }
+.abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
-.homepage, .about, .techstack, .contact {
+/* Navigation */
+.nav-item {
     position: absolute;
     top: 10px;
     height: 100px;
     transform: translateX(-50%);
-}
-
-.homepage {
     width: 100px;
-    left: 42%;
 }
 
-.about {
-    width: 100px;
-    left: 48%;
-}
+.homepage { left: 42%; }
+.about { left: 48%; }
+.techstack { left: 53%; }
+.contact { left: 60%; }
 
-.techstack {
-    width: 100px;
-    left: 53%;
-}
-
-.contact {
-    width: 100px;
-    left: 60%;
-}
-
+/* Main Content */
 .container {
     display: flex;
     flex-direction: column;
@@ -58,25 +45,26 @@
 
 #ring {
     z-index: -1;
-    top: 0%;
-    left: 0;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
 
-/* Media Queries for Responsive Design */
+/* ===== Responsive Adjustments ===== */
+/* Large tablets and small laptops (769px - 1024px) */
 @media (max-width: 1024px) {
-    /* Adjust navigation for tablets */
     .homepage { left: 35%; }
     .about { left: 45%; }
     .techstack { left: 55%; }
     .contact { left: 65%; }
 }
 
+/* Tablets (481px - 768px) */
 @media (max-width: 768px) {
-    /* Stack navigation vertically on smaller tablets */
-    .homepage, .about, .techstack, .contact {
+    /* Convert navigation to vertical stack */
+    .nav-item {
         position: relative;
         display: block;
         width: auto;
@@ -105,8 +93,8 @@
     }
 }
 
+/* Mobile phones (320px - 480px) */
 @media (max-width: 480px) {
-    /* Mobile phone adjustments */
     .profile {
         width: 100px;
         height: 100px;
@@ -116,15 +104,14 @@
         font-size: 0.9em;
     }
     
-    /* Make navigation more compact */
-    .homepage, .about, .techstack, .contact {
+    .nav-item {
         padding: 5px;
         font-size: 0.9em;
     }
 }
 
+/* Extra small phones (below 320px) */
 @media (max-width: 320px) {
-    /* Extra small devices */
     .name, .intro {
         font-size: 0.8em;
     }
