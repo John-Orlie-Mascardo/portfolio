@@ -13,58 +13,49 @@
     <script>
         window.addEventListener("DOMContentLoaded", () => {
             VANTA.WAVES({
-            el: "#ring",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x22252d,
-            shininess: 11.00,
-            waveHeight: 16.00,
-            waveSpeed: 1.10,
-            zoom: 0.76
+                el: "#ring",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x22252d,
+                shininess: 11.00,
+                waveHeight: 16.00,
+                waveSpeed: 1.10,
+                zoom: 0.76
             })
         })
     </script>
-    <header class="HeaderHomePage">
-        <nav>
-            <div class="homepage"> 
-                <a class="homepagetextcolor" href="index.html">Homepage</a>
-            </div>
-        
-            <div class="techstack">
-                <a class="techstacktextcolor" href="techstack.html">Tech Stack</a>
-            </div>
-        
-            <div class="about"> 
-                <a class="abouttextcolor" href="about.html">About</a>
-            </div>
-            <div class="contact"> 
-                <a class="contacttextcolor" href="contact.html">Contact</a>
-            </div>
-        </nav>
-    </header>
 
-    <main class="all">
-        <div class="aboutme">
-            <h1>
-                About Me!
-            </h1> 
-            <p>
-                I'm a BSIT student at St. Dominic College of Asia and currently at 2nd year. 
-            </p>
-        </div>
-        <div class="like">
-            <h2 >
-                What I do? What I like?
-            </h2>
-            <p>
-                I like sleeping and listening to rnb musics! I also love training badminton, running, and weight lifting.
-            </p>
-        </div>
-    </main>
+    <!-- New Navigation Bar -->
+    <div class="nav-container">
+        <ul class="nav-menu">
+            <li class="nav-item"><a class="homepagetextcolor" href="index.html">Home</a></li>
+            <li class="nav-item active"><a class="abouttextcolor" href="about.html">About</a></li>
+            <li class="nav-item"><a class="techstacktextcolor" href="techstack.html">Tech Stack</a></li>
+            <li class="nav-item"><a class="contacttextcolor" href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-container">
+        <main class="all">
+            <div class="aboutme">
+                <h1>About Me!</h1> 
+                <p>
+                    I'm a BSIT student at St. Dominic College of Asia and currently at 2nd year. 
+                </p>
+            </div>
+            <div class="like">
+                <h2>What I do? What I like?</h2>
+                <p>
+                    I like sleeping and listening to rnb musics! I also love training badminton, running, and weight lifting.
+                </p>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

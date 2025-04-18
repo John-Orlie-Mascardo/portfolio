@@ -4,20 +4,58 @@
 .abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
 /* Navigation */
-.nav-item {
-    position: absolute;
-    top: 10px;
-    height: 100px;
-    transform: translateX(-50%);
-    width: 100px;
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
 }
 
-.homepage { left: 42%; }
-.about { left: 48%; }
-.techstack { left: 53%; }
-.contact { left: 60%; }
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    background-color: rgba(100, 150, 255, 0.7);
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
+}
+
+.nav-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
 /* Main Content */
+.main-container {
+    background-color: rgba(20, 20, 30, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 100px auto 50px;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -34,6 +72,8 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+    border: 3px solid rgba(100, 150, 255, 0.5);
+    box-shadow: 0 0 15px rgba(100, 150, 255, 0.3);
 }
 
 .name, .intro {
@@ -55,26 +95,25 @@
 /* ===== Responsive Adjustments ===== */
 /* Large tablets and small laptops (769px - 1024px) */
 @media (max-width: 1024px) {
-    .homepage { left: 35%; }
-    .about { left: 45%; }
-    .techstack { left: 55%; }
-    .contact { left: 65%; }
+    .main-container {
+        margin: 80px 20px 40px;
+    }
 }
 
 /* Tablets (481px - 768px) */
 @media (max-width: 768px) {
-    /* Convert navigation to vertical stack */
+    .nav-menu {
+        gap: 10px;
+    }
+    
     .nav-item {
-        position: relative;
-        display: block;
-        width: auto;
-        height: auto;
-        top: auto;
-        left: auto;
-        transform: none;
-        text-align: center;
-        margin: 5px 0;
-        padding: 10px;
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    
+    .main-container {
+        padding: 20px;
+        margin: 70px 15px 30px;
     }
     
     .container {
@@ -95,6 +134,15 @@
 
 /* Mobile phones (320px - 480px) */
 @media (max-width: 480px) {
+    .nav-menu {
+        gap: 5px;
+    }
+    
+    .nav-item {
+        padding: 5px 8px;
+        font-size: 0.8em;
+    }
+    
     .profile {
         width: 100px;
         height: 100px;
@@ -103,15 +151,15 @@
     .name, .intro {
         font-size: 0.9em;
     }
-    
-    .nav-item {
-        padding: 5px;
-        font-size: 0.9em;
-    }
 }
 
 /* Extra small phones (below 320px) */
 @media (max-width: 320px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
     .name, .intro {
         font-size: 0.8em;
     }

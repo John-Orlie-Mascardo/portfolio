@@ -3,34 +3,83 @@
 .techstacktextcolor { color: rgb(250, 250, 250); }
 .abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
+/* Navigation */
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    background-color: rgba(100, 150, 255, 0.7);
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
+}
+
+.nav-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Main Content */
+.main-container {
+    background-color: rgba(20, 20, 30, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 100px auto 50px;
+    max-width: 1000px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
 .all {
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 10px;
     text-align: center;
     height: auto;
     min-height: 40vh;
-    margin-top: 5vh;
 }
 
 .techtitle {
-    margin: 10px 0 10px;
+    margin: 5px 0 10px;
     font-size: 2.5rem;
 }
 
 /* Tech Stack Sections */
 .tech-section {
-    margin: 8px 0;
+    margin: 4px 0;
     width: 100%;
-    padding: 4px 0;
 }
 
 .tech-section h2 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-size: 1.8rem;
     color: #f0f0f0;
 }
@@ -38,14 +87,14 @@
 /* Specific section adjustments */
 .proglang .tech-images {
     background-color: rgba(40, 40, 50, 0.3);
-    padding: 8px;
+    padding: 4px;
     border-radius: 10px;
 }
 
 .frontend .tech-images {
     background-color: rgba(50, 40, 60, 0.3);
     padding: 4px;
-    border-radius: 10x;
+    border-radius: 10px;
 }
 
 .IDEs .tech-images {
@@ -59,10 +108,9 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
     margin: 0 auto;
     max-width: 800px;
-    padding: 15px;
 }
 
 /* Individual Tech Images */
@@ -83,23 +131,6 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Navigation */
-.nav-item {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 10px;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.homepage { left: 42%; }
-.about { left: 48%; }
-.techstack { left: 53%; }
-.contact { left: 60%; }
-
 /* Background Element */
 #ring {
     z-index: -1;
@@ -113,11 +144,6 @@
 /* ===== Responsive Adjustments ===== */
 /* Large laptops (992px - 1200px) */
 @media (max-width: 1200px) {
-    .homepage { left: 38%; }
-    .about { left: 44%; }
-    .techstack { left: 50%; }
-    .contact { left: 56%; }
-    
     .tech-img {
         width: 110px;
         height: 110px;
@@ -126,13 +152,9 @@
 
 /* Tablets (768px - 992px) */
 @media (max-width: 992px) {
-    .homepage { left: 35%; }
-    .about { left: 42%; }
-    .techstack { left: 48%; }
-    .contact { left: 55%; }
-    
-    .all {
-        margin-top: 15vh;
+    .main-container {
+        margin: 90px 20px 40px;
+        padding: 25px;
     }
     
     .tech-img {
@@ -147,15 +169,19 @@
 
 /* Small tablets (576px - 768px) */
 @media (max-width: 768px) {
-    .nav-item {
-        width: 80px;
-        height: 80px;
+    .nav-menu {
+        gap: 10px;
     }
     
-    .homepage { left: 30%; }
-    .about { left: 40%; }
-    .techstack { left: 47%; }
-    .contact { left: 54%; }
+    .nav-item {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    
+    .main-container {
+        margin: 80px 15px 30px;
+        padding: 20px;
+    }
     
     .techtitle {
         font-size: 2.2rem;
@@ -177,29 +203,18 @@
 
 /* Mobile landscape (480px - 576px) */
 @media (max-width: 576px) {
+    .nav-menu {
+        gap: 5px;
+    }
+    
     .nav-item {
-        width: 70px;
-        height: 70px;
+        padding: 5px 10px;
+        font-size: 0.85em;
     }
     
-    .homepage { left: 25%; }
-    .about { left: 38%; }
-    .techstack { left: 46%; }
-    .contact { left: 53%; }
-    
-    .all {
-        padding: 30px 0;
-        margin-top: 20vh;
-    }
-    
-    .techtitle {
-        font-size: 2rem;
-        margin: 30px 0 20px;
-    }
-    
-    .tech-section h2 {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
+    .main-container {
+        margin: 70px 10px 25px;
+        padding: 15px;
     }
     
     .tech-img {
@@ -212,26 +227,35 @@
     }
 }
 
-/* Mobile portrait (360px - 480px) */
+/* Mobile portrait (below 480px) */
 @media (max-width: 480px) {
-    .nav-item {
-        width: 60px;
-        height: 60px;
-        top: 5px;
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
     }
     
-    .homepage { left: 20%; }
-    .about { left: 35%; }
-    .techstack { left: 45%; }
-    .contact { left: 52%; }
+    .nav-item {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
+    
+    .main-container {
+        margin: 60px 5px 20px;
+        padding: 10px;
+    }
+    
+    .techtitle {
+        font-size: 2rem;
+    }
+    
+    .tech-section h2 {
+        font-size: 1.4rem;
+    }
     
     .tech-img {
         width: 70px;
         height: 70px;
-    }
-    
-    .all {
-        margin-top: 15vh;
     }
     
     .tech-images {
@@ -241,15 +265,9 @@
 
 /* Extra small devices (below 360px) */
 @media (max-width: 360px) {
-    .nav-item {
-        width: 50px;
-        height: 50px;
+    .main-container {
+        margin: 50px 5px 15px;
     }
-    
-    .homepage { left: 15%; }
-    .about { left: 32%; }
-    .techstack { left: 43%; }
-    .contact { left: 50%; }
     
     .techtitle {
         font-size: 1.8rem;

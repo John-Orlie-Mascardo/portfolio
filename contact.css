@@ -3,7 +3,59 @@
 .techstacktextcolor { color: rgb(250, 250, 250); }
 .abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
-/* Main Content Container */
+/* Navigation */
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 10px 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    background-color: rgba(100, 150, 255, 0.7);
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
+}
+
+.nav-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.main-container {
+    background-color: rgba(20, 20, 30, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 100px auto 50px;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
 .all {
     color: white;
     display: flex;
@@ -11,8 +63,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 50vh;
-    margin-top: 10vh;
+    height: auto;
+    min-height: 50vh;
     box-sizing: border-box;
 }
 
@@ -54,23 +106,6 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Navigation */
-.nav-item {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 10px;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.homepage { left: 42%; }
-.about { left: 48%; }
-.techstack { left: 53%; }
-.contact { left: 60%; }
-
 /* Background Element */
 #ring {
     z-index: -1;
@@ -91,24 +126,18 @@
 /* ===== Responsive Adjustments ===== */
 /* Large laptops (1025px - 1200px) */
 @media (max-width: 1200px) {
-    .homepage { left: 38%; }
-    .about { left: 44%; }
-    .techstack { left: 50%; }
-    .contact { left: 56%; }
-    
     .linkedin, .github {
         width: 110px;
         height: 110px;
+    }
+    
+    .main-container {
+        margin: 90px 30px 40px;
     }
 }
 
 /* Tablets (769px - 1024px) */
 @media (max-width: 992px) {
-    .homepage { left: 35%; }
-    .about { left: 42%; }
-    .techstack { left: 48%; }
-    .contact { left: 55%; }
-    
     .all {
         margin-top: 15vh;
     }
@@ -122,19 +151,23 @@
         gap: 25px;
         padding: 15px;
     }
+    
+    .main-container {
+        margin: 80px 20px 30px;
+        padding: 25px;
+    }
 }
 
 /* Small tablets (577px - 768px) */
 @media (max-width: 768px) {
-    .nav-item {
-        width: 80px;
-        height: 80px;
+    .nav-menu {
+        gap: 10px;
     }
     
-    .homepage { left: 30%; }
-    .about { left: 40%; }
-    .techstack { left: 47%; }
-    .contact { left: 54%; }
+    .nav-item {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
     
     .all h1 {
         font-size: 2.2rem;
@@ -149,24 +182,25 @@
         gap: 20px;
         padding: 12px;
     }
+    
+    .main-container {
+        margin: 70px 15px 25px;
+        padding: 20px;
+    }
 }
 
 /* Mobile landscape (481px - 576px) */
 @media (max-width: 576px) {
+    .nav-menu {
+        gap: 5px;
+    }
+    
     .nav-item {
-        position: relative;
-        display: inline-block;
-        width: auto;
-        height: auto;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin: 0 10px;
-        padding: 5px 0;
+        padding: 5px 10px;
+        font-size: 0.85em;
     }
     
     .all {
-        height: auto;
         padding: 40px 20px;
         margin-top: 20vh;
     }
@@ -185,10 +219,26 @@
         gap: 15px;
         padding: 10px;
     }
+    
+    .main-container {
+        margin: 60px 10px 20px;
+        padding: 15px;
+    }
 }
 
 /* Mobile portrait (below 480px) */
 @media (max-width: 480px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+    
+    .nav-item {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
+    
     .all {
         padding: 30px 15px;
         margin-top: 15vh;
@@ -199,11 +249,6 @@
         height: 70px;
     }
     
-    .nav-item {
-        margin: 0 5px;
-        font-size: 0.9em;
-    }
-    
     .all h1 {
         font-size: 1.8rem;
     }
@@ -211,6 +256,11 @@
     .icon {
         gap: 10px;
         padding: 8px;
+    }
+    
+    .main-container {
+        margin: 50px 5px 15px;
+        padding: 10px;
     }
 }
 
