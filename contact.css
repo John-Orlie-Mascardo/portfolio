@@ -75,7 +75,7 @@
     padding: 20px 0;
 }
 
-/* Contact Icons Container */
+/* ===== Clickable Icons Section ===== */
 .icon {
     display: flex;
     justify-content: center;
@@ -88,8 +88,15 @@
     border-radius: 15px;
 }
 
+/* Social Icon Links */
+.icon a {
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
 /* Social Icons */
-.linkedin, .github {
+.icon img {
     width: 120px;
     height: 120px;
     object-fit: contain;
@@ -100,10 +107,22 @@
     padding: 10px;
 }
 
-.linkedin:hover, .github:hover {
+/* Hover Effects */
+.icon a:hover img {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
-    background-color: rgba(255, 255, 255, 0.1);
+    filter: drop-shadow(0 0 10px rgba(100, 150, 255, 0.6));
+    background-color: rgba(100, 150, 255, 0.15);
+}
+
+/* Specific Icon Colors */
+.icon a:hover .linkedin {
+    filter: drop-shadow(0 0 10px rgba(10, 102, 194, 0.6));
+    background-color: rgba(10, 102, 194, 0.15);
+}
+
+.icon a:hover .github {
+    filter: drop-shadow(0 0 10px rgba(36, 41, 46, 0.6));
+    background-color: rgba(36, 41, 46, 0.15);
 }
 
 /* Background Element */
@@ -121,12 +140,13 @@
     margin: 30px 0;
     font-size: 2.5rem;
     color: #f0f0f0;
+    text-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
 }
 
 /* ===== Responsive Adjustments ===== */
 /* Large laptops (1025px - 1200px) */
 @media (max-width: 1200px) {
-    .linkedin, .github {
+    .icon img {
         width: 110px;
         height: 110px;
     }
@@ -142,7 +162,7 @@
         margin-top: 15vh;
     }
     
-    .linkedin, .github {
+    .icon img {
         width: 100px;
         height: 100px;
     }
@@ -173,7 +193,7 @@
         font-size: 2.2rem;
     }
     
-    .linkedin, .github {
+    .icon img {
         width: 90px;
         height: 90px;
     }
@@ -210,7 +230,7 @@
         margin: 20px 0;
     }
     
-    .linkedin, .github {
+    .icon img {
         width: 80px;
         height: 80px;
     }
@@ -244,7 +264,7 @@
         margin-top: 15vh;
     }
     
-    .linkedin, .github {
+    .icon img {
         width: 70px;
         height: 70px;
     }
@@ -266,7 +286,7 @@
 
 /* Extra small devices (below 360px) */
 @media (max-width: 360px) {
-    .linkedin, .github {
+    .icon img {
         width: 60px;
         height: 60px;
         padding: 8px;
