@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(30, 30, 30, 0.8);
+    background-color: rgba(20, 20, 30, 0.7);
     padding: 10px 0;
     z-index: 100;
     display: flex;
@@ -38,10 +38,9 @@
 }
 
 .nav-item.active {
-    background-color: rgba(100, 150, 255, 0.7);
-    box-shadow: 0 0 10px rgba(100, 150, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 .nav-item:hover:not(.active) {
     background-color: rgba(255, 255, 255, 0.1);
 }
