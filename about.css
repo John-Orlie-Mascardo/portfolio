@@ -3,6 +3,13 @@
 .techstacktextcolor { color: rgb(250, 250, 250); }
 .abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
 
+/* Font */
+.slabo-27px-regular {
+    font-family: "Slabo 27px", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 /* Navigation */
 .nav-container {
     position: fixed;
