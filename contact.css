@@ -58,8 +58,9 @@
     background-color: rgba(20, 20, 30, 0.7);
     border-radius: 15px;
     padding: 30px;
-    margin: 100px auto 50px;
+    margin: 120px auto 50px; /* Increased top margin for consistent navbar gap */
     max-width: 800px;
+    width: 90%; /* Set default width */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -135,11 +136,11 @@
 /* Background Element */
 #ring {
     z-index: -1;
-    position: absolute;
+    position: fixed; /* Use fixed to ensure it stays in place */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
 }
 
 /* Title Styling */
@@ -159,16 +160,13 @@
     }
     
     .main-container {
-        margin: 90px 30px 40px;
+        width: 85%;
+        margin: 120px auto 40px;
     }
 }
 
 /* Tablets (769px - 1024px) */
 @media (max-width: 992px) {
-    .all {
-        margin-top: 15vh;
-    }
-    
     .icon img {
         width: 100px;
         height: 100px;
@@ -180,7 +178,8 @@
     }
     
     .main-container {
-        margin: 80px 20px 30px;
+        width: 85%;
+        margin: 100px auto 30px;
         padding: 25px;
     }
 }
@@ -211,7 +210,8 @@
     }
     
     .main-container {
-        margin: 70px 15px 25px;
+        width: 90%;
+        margin: 90px auto 25px;
         padding: 20px;
     }
 }
@@ -225,11 +225,6 @@
     .nav-item {
         padding: 5px 10px;
         font-size: 0.85em;
-    }
-    
-    .all {
-        padding: 40px 20px;
-        margin-top: 20vh;
     }
     
     .all h1 {
@@ -248,7 +243,8 @@
     }
     
     .main-container {
-        margin: 60px 10px 20px;
+        width: 92%;
+        margin: 80px auto 20px;
         padding: 15px;
     }
 }
@@ -266,11 +262,6 @@
         font-size: 0.8em;
     }
     
-    .all {
-        padding: 30px 15px;
-        margin-top: 15vh;
-    }
-    
     .icon img {
         width: 70px;
         height: 70px;
@@ -286,7 +277,8 @@
     }
     
     .main-container {
-        margin: 50px 5px 15px;
+        width: 95%;
+        margin: 70px auto 15px;
         padding: 10px;
     }
 }
@@ -305,5 +297,11 @@
     
     .icon {
         gap: 8px;
+    }
+    
+    .main-container {
+        width: 98%;
+        margin: 60px auto 10px;
+        padding: 10px;
     }
 }

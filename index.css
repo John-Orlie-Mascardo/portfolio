@@ -58,8 +58,9 @@
     background-color: rgba(20, 20, 30, 0.7);
     border-radius: 15px;
     padding: 30px;
-    margin: 100px auto 50px;
+    margin: 120px auto 50px; /* Increased top margin for navbar spacing */
     max-width: 800px;
+    width: 90%; /* Default width */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -92,18 +93,20 @@
 
 #ring {
     z-index: -1;
-    position: absolute;
+    position: fixed; /* Use fixed to ensure it stays in place */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
 }
 
 /* ===== Responsive Adjustments ===== */
 /* Large tablets and small laptops (769px - 1024px) */
 @media (max-width: 1024px) {
     .main-container {
-        margin: 80px 20px 40px;
+        width: 85%;
+        margin: 100px auto 40px;
+        padding: 25px;
     }
 }
 
@@ -119,8 +122,9 @@
     }
     
     .main-container {
+        width: 90%;
+        margin: 90px auto 30px;
         padding: 20px;
-        margin: 70px 15px 30px;
     }
     
     .container {
@@ -139,6 +143,33 @@
     }
 }
 
+@media (max-width: 576px) {
+    .main-container {
+        width: 92%;
+        margin: 80px auto 20px;
+        padding: 15px;
+    }
+    .nav-menu {
+        gap: 8px;
+    }
+    
+    .nav-item {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+    
+    .profile {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .name, .intro {
+        font-size: 0.95em;
+        width: 100%;
+        max-width: none;
+    }
+}
+
 /* Mobile phones (320px - 480px) */
 @media (max-width: 480px) {
     .nav-menu {
@@ -148,6 +179,12 @@
     .nav-item {
         padding: 5px 8px;
         font-size: 0.8em;
+    }
+    
+    .main-container {
+        width: 95%;
+        margin: 70px auto 15px;
+        padding: 10px;
     }
     
     .profile {
@@ -165,6 +202,12 @@
     .nav-menu {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    
+    .main-container {
+        width: 98%;
+        margin: 60px auto 10px;
+        padding: 10px;
     }
     
     .name, .intro {
