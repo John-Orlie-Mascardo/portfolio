@@ -121,23 +121,47 @@
     max-width: 800px;
 }
 
-/* Individual Tech Images */
-.tech-img {
+/* Tech Item Container */
+.tech-item {
+    position: relative;
     width: 120px;
     height: 120px;
-    aspect-ratio: 1 / 1;
-    object-fit: contain; 
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
-    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
 }
 
-.tech-img:hover {
+.tech-item:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Individual Tech Images */
+.tech-img {
+    width: 100%;
+    height: calc(100% - 25px); /* Subtract space for label */
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    padding: 10px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+/* Tech Label */
+.tech-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 25px; /* Fixed height for label */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 0.9rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 10px 10px;
+    padding: 2px;
 }
 
 /* Background Element */
@@ -175,6 +199,12 @@
     .tech-images {
         gap: 25px;
     }
+
+    .tech-item {
+        width: 100px;
+        height: 120px;
+    }
+
 }
 
 
@@ -211,6 +241,20 @@
     .tech-images {
         gap: 20px;
     }
+
+    .tech-label {
+        font-size: 0.8rem;
+    }
+
+    .tech-item {
+        width: 90px;
+        height: 110px;
+    }
+    .tech-label {
+        height: 22px;
+        font-size: 0.85rem;
+    }
+
 }
 
 /* Mobile landscape (below 581px) */
@@ -242,18 +286,28 @@
             "img3 img3";
     }
 
-    .IDEs .tech-images img:nth-child(1) { grid-area: img1; }
-    .IDEs .tech-images img:nth-child(2) { grid-area: img2; }
-    .IDEs .tech-images img:nth-child(3) {
+    .tech-item {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Update IDE section grid areas for tech-items */
+    .IDEs .tech-images .tech-item:nth-child(1) { grid-area: img1; }
+    .IDEs .tech-images .tech-item:nth-child(2) { grid-area: img2; }
+    .IDEs .tech-images .tech-item:nth-child(3) {
         grid-area: img3;
         justify-self: center;
     }
     
-    .tech-img {
+    .tech-item {
         width: 80px;
-        height: 80px;
-        margin: 0;
+        height: 100px;
     }
+    .tech-label {
+        height: 20px;
+        font-size: 0.8rem;
+    }
+
 }
 
 /* Mobile portrait (below 480px) */
@@ -279,6 +333,19 @@
         width: 70px;
         height: 70px;
     }
+
+    .tech-label {
+        font-size: 0.8rem;
+    }
+
+    .tech-item {
+        width: 70px;
+        height: 90px;
+    }
+    .tech-label {
+        height: 18px;
+        font-size: 0.75rem;
+    }
 }
 
 /* Mobile portrait (below 450px) */
@@ -296,6 +363,7 @@
         width: 70px;
         height: 70px;
     }
+
 }
 
 /* Extra small devices (below 360px) */
@@ -314,4 +382,15 @@
         height: 60px;
         padding: 8px;
     }
+
+    .tech-item {
+        width: 60px;
+        height: 80px;
+    }
+    .tech-label {
+        height: 16px;
+        font-size: 0.7rem;
+        padding: 1px;
+    }
+    
 }
