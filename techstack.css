@@ -124,66 +124,91 @@
 /* Tech Item Container */
 .tech-item {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
 }
 
-.tech-item:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.1);
+/* Image Container - Better centering approach */
+.img-container {
+    width: 100%;
+    height: 130px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative; /* Add position relative for absolute centering if needed */
 }
 
-/* Individual Tech Images */
+/* Individual Tech Images - Multiple centering techniques for robustness */
 .tech-img {
-    width: 100%;
-    height: calc(100% - 25px); /* Subtract space for label */
-    aspect-ratio: 1 / 1;
+    position: absolute; /* Use absolute positioning for precise control */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect centering technique */
+    max-width: 110px;
+    max-height: 110px;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    padding: 10px;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+/* Label Container */
+.label-container {
+    width: 100%;
+    height: 30px;
+    margin-top: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Tech Label */
 .tech-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 25px; /* Fixed height for label */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     color: white;
     font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0 0 10px 10px;
-    padding: 2px;
+    text-align: center;
+    padding: 2px 4px;
+}
+
+.tech-item:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Background Element */
 #ring {
     z-index: -1;
-    position: fixed; /* Use fixed to ensure it stays in place */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    height: 100vh;
 }
 
 /* ===== Responsive Adjustments ===== */
-/* Large laptops (992px - 1200px) */
 @media (max-width: 1200px) {
+    .tech-item {
+        width: 130px;
+        height: 150px;
+    }
+    .img-container {
+        height: 120px;
+    }
     .tech-img {
-        width: 110px;
-        height: 110px;
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 
-/* Tablets (768px - 992px) */
 @media (max-width: 992px) {
     .main-container {
         width: 85%;
@@ -191,24 +216,20 @@
         padding: 25px;
     }
     
-    .tech-img {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .tech-images {
-        gap: 25px;
-    }
-
     .tech-item {
-        width: 100px;
-        height: 120px;
+        width: 120px;
+        height: 140px;
     }
-
+    .img-container {
+        height: 110px;
+        padding: 12px;
+    }
+    .tech-img {
+        max-width: 90px;
+        max-height: 90px;
+    }
 }
 
-
-/* Small tablets (576px - 768px) */
 @media (max-width: 768px) {
     .nav-menu {
         gap: 10px;
@@ -233,31 +254,30 @@
         font-size: 1.6rem;
     }
     
-    .tech-img {
-        width: 90px;
-        height: 90px;
-    }
-    
     .tech-images {
         gap: 20px;
     }
 
-    .tech-label {
-        font-size: 0.8rem;
-    }
-
     .tech-item {
-        width: 90px;
-        height: 110px;
+        width: 110px;
+        height: 130px;
+    }
+    .img-container {
+        height: 100px;
+        padding: 10px;
+    }
+    .tech-img {
+        max-width: 85px;
+        max-height: 85px;
+    }
+    .label-container {
+        height: 26px;
     }
     .tech-label {
-        height: 22px;
         font-size: 0.85rem;
     }
-
 }
 
-/* Mobile landscape (below 581px) */
 @media (max-width: 580px) {
     .main-container {
         width: 92%;
@@ -274,43 +294,38 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(auto, 120px));
         gap: 20px;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
     }
 
-    /* Special handling for IDE section with 3 images */
     .IDEs .tech-images {
         grid-template-areas: 
             "img1 img2"
             "img3 img3";
     }
-
-    .tech-item {
-        width: 80px;
-        height: 80px;
-    }
     
-    /* Update IDE section grid areas for tech-items */
+    .tech-item {
+        width: 100px;
+        height: 120px;
+    }
+    .img-container {
+        height: 90px;
+        padding: 8px;
+    }
+    .tech-img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    .label-container {
+        height: 24px;
+    }
+
     .IDEs .tech-images .tech-item:nth-child(1) { grid-area: img1; }
     .IDEs .tech-images .tech-item:nth-child(2) { grid-area: img2; }
     .IDEs .tech-images .tech-item:nth-child(3) {
         grid-area: img3;
         justify-self: center;
     }
-    
-    .tech-item {
-        width: 80px;
-        height: 100px;
-    }
-    .tech-label {
-        height: 20px;
-        font-size: 0.8rem;
-    }
-
 }
 
-/* Mobile portrait (below 480px) */
 @media (max-width: 480px) {
     .main-container {
         width: 95%;
@@ -326,47 +341,27 @@
     .tech-images {
         grid-template-columns: repeat(2, minmax(auto, 100px));
         gap: 15px;
-        justify-content: center;
     }
-    
-    .tech-img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .tech-label {
-        font-size: 0.8rem;
-    }
-
     .tech-item {
-        width: 70px;
-        height: 90px;
+        width: 90px;
+        height: 110px;
+    }
+    .img-container {
+        height: 80px;
+    }
+    .tech-img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+    .label-container {
+        height: 22px;
     }
     .tech-label {
-        height: 18px;
-        font-size: 0.75rem;
+        font-size: 0.8rem; /* Intermediate size */
+        padding: 2px 4px;
     }
 }
 
-/* Mobile portrait (below 450px) */
-@media (max-width: 450px) {
-    .tech-section {
-        width: 90%;
-    }
-    
-    .tech-images {
-        grid-template-columns: repeat(2, minmax(auto, 90px));
-        gap: 15px;
-    }
-    
-    .tech-img {
-        width: 70px;
-        height: 70px;
-    }
-
-}
-
-/* Extra small devices (below 360px) */
 @media (max-width: 360px) {
     .tech-section {
         width: 95%;
@@ -376,21 +371,25 @@
         grid-template-columns: repeat(2, minmax(auto, 80px));
         gap: 10px;
     }
-    
-    .tech-img {
-        width: 60px;
-        height: 60px;
-        padding: 8px;
-    }
-
     .tech-item {
-        width: 60px;
-        height: 80px;
+        width: 80px;
+        height: 100px;
+    }
+    .img-container {
+        height: 70px;
+        padding: 6px;
+    }
+    .tech-img {
+        max-width: 60px;
+        max-height: 60px;
+    } 
+    .label-container {
+        height: 22px; /* Consistent height */
     }
     .tech-label {
-        height: 16px;
-        font-size: 0.7rem;
-        padding: 1px;
+        font-size: 0.75rem;
+        padding: 2px;
+        white-space: normal; /* Wrap if needed */
+        line-height: 1.1;
     }
-    
 }
