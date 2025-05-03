@@ -133,24 +133,19 @@
     transition: all 0.3s ease;
 }
 
-/* Image Container - Better centering approach */
+/* Image Container - Improved centering */
 .img-container {
     width: 100%;
     height: 130px;
-    padding: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    position: relative; /* Add position relative for absolute centering if needed */
+    position: relative;
 }
 
-/* Individual Tech Images - Multiple centering techniques for robustness */
+/* Individual Tech Images - Simplified for better centering */
 .tech-img {
-    position: absolute; /* Use absolute positioning for precise control */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Perfect centering technique */
     max-width: 110px;
     max-height: 110px;
     width: auto;
