@@ -5,19 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Orlie Mascardo | About</title>
 
-    <link rel="stylesheet" href="about.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-dark': '#22252d',
+                    },
+                    fontFamily: {
+                        'slabo': ['"Slabo 27px"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
 
     <!--JScript link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 
-   <!--Font Link-->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
+    <!--Font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
 </head>
-<body class="body">
-    <div id="ring"></div>
+<body class="bg-transparent">
+    <div id="ring" class="fixed top-0 left-0 w-screen h-screen -z-10"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full bg-[#14141e]/70 py-2.5 z-50 flex justify-center font-slabo">
+        <ul class="flex gap-5 list-none p-0 m-0">
+            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
+                <a class="text-[#f3f3f3] no-underline font-medium" href="index.html">Home</a>
+            </li>
+            <li class="relative px-4 py-2 rounded-full bg-black/70 shadow-lg">
+                <a class="text-white no-underline font-medium" href="about.html">About</a>
+            </li>
+            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
+                <a class="text-[#fafafa] no-underline font-medium" href="techstack.html">Tech Stack</a>
+            </li>
+            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
+                <a class="text-white no-underline font-medium" href="contact.html">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Container -->
+<main class="bg-[#14141e]/70 rounded-xl p-6 md:p-8 mx-auto my-24 max-w-4xl w-[90%] shadow-lg font-slabo">
+    <div class="text-white flex flex-col items-center justify-center text-center min-h-[50vh]">
+        <div class="max-w-[650px] w-full mx-auto px-2 md:px-4">
+            <h1 class="text-[clamp(2rem,6vw,3.5rem)] md:text-[clamp(2.5rem,7vw,4rem)] text-[#f0f0f0] mb-6 md:mb-8">
+                About Me
+            </h1>
+            
+            <div class="space-y-6 text-justify">
+                <p class="text-[clamp(0.9rem,1.8vw,1.2rem)] md:text-[clamp(1rem,2vw,1.3rem)] leading-relaxed">
+                    I am a BSIT student at St. Dominic College of Asia, currently in my second year. 
+                    I am interested in exploring new things, solving problems, and focusing on my mental and physical growth. 
+                    I spend most of my time honing my skills through reading, watching, practicing, and asking questions.
+                    While I am still discovering my specific aspirations within the field, 
+                    I am actively exploring different paths to find where my true interests lie.
+                </p>
+                
+                <p class="text-[clamp(0.9rem,1.8vw,1.2rem)] md:text-[clamp(1rem,2vw,1.3rem)] leading-relaxed">
+                    While I am still discovering my specific aspirations within the field, 
+                    I am actively exploring different paths to find where my true interests lie.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
     <script>
         window.addEventListener("DOMContentLoaded", () => {
             VANTA.WAVES({
@@ -37,35 +99,5 @@
             })
         })
     </script>
-
-    <!-- New Navigation Bar -->
-    <div class="nav-container slabo-27px-regular">
-        <ul class="nav-menu">
-            <li class="nav-item"><a class="homepagetextcolor" href="index.html">Home</a></li>
-            <li class="nav-item active"><a class="abouttextcolor" href="about.html">About</a></li>
-            <li class="nav-item"><a class="techstacktextcolor" href="techstack.html">Tech Stack</a></li>
-            <li class="nav-item"><a class="contacttextcolor" href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-
-    <!-- Main Content Container -->
-    <div class="main-container slabo-27px-regular">
-        <main class="all">
-            <div class="aboutme">
-                <h1>About Me</h1> 
-                <p class="aboutme_body">
-                    I am a BSIT student at St. Dominic College of Asia, currently in my second year. 
-                    I am interested in exploring new things, solving problems, and focusing on my mental and physical growth. 
-                    I spend most of my time honing my skills through reading, watching, practicing, and asking questions.
-                    While I am still discovering my specific aspirations within the field, 
-                    I am actively exploring different paths to find where my true interests lie.
-                </p>
-                <p class="aboutme_body">
-                    While I am still discovering my specific aspirations within the field, 
-                    I am actively exploring different paths to find where my true interests lie.
-                </p>
-            </div>
-        </main>
-    </div>
 </body>
 </html>
