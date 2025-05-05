@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Orlie Mascardo | Homepage</title>
@@ -10,88 +10,92 @@
     
     <!-- Configure Tailwind -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-dark': '#22252d',
-                    },
-                    fontFamily: {
-                        'slabo': ['"Slabo 27px"', 'serif'],
-                    },
-                }
-            }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'bg-dark': '#22252d',
+            },
+            fontFamily: {
+              'slabo': ['"Slabo 27px"', 'serif'],
+            },
+          }
         }
+      }
     </script>
 
-    <!--JScript link-->
+    <!-- JScript link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 
-    <!--Font Link-->
+    <!-- Font Link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
-</head>
-<body class="bg-transparent">
+  </head>
+
+  <body class="bg-transparent">
     <div id="ring" class="fixed top-0 left-0 w-screen h-screen -z-10"></div>
 
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 w-full bg-[#14141e]/70 py-2.5 z-50 flex justify-center font-slabo">
-        <ul class="flex gap-5 list-none p-0 m-0">
-            <li class="relative px-4 py-2 rounded-full bg-black/70 shadow-lg">
-                <a class="text-[#f3f3f3] no-underline font-medium" href="index.html">Home</a>
-            </li>
-            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
-                <a class="text-white no-underline font-medium" href="about.html">About</a>
-            </li>
-            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10 whitespace-nowrap min-w-max">
-                <a class="text-[#fafafa] no-underline font-medium" href="techstack.html">
-                    Tech Stack
-                </a>
-            </li>
-            <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
-                <a class="text-white no-underline font-medium" href="contact.html">Contact</a>
-            </li>
-        </ul>
+      <ul class="flex gap-5 list-none p-0 m-0">
+        <li class="relative px-4 py-2 rounded-full bg-black/70 shadow-lg">
+          <a class="text-[#f3f3f3] no-underline font-medium" href="index.html">Home</a>
+        </li>
+        <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
+          <a class="text-white no-underline font-medium" href="about.html">About</a>
+        </li>
+        <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10 whitespace-nowrap min-w-max">
+          <a class="text-[#fafafa] no-underline font-medium" href="techstack.html">
+            Tech Stack
+          </a>
+        </li>
+        <li class="relative px-4 py-2 rounded-full transition-all duration-300 hover:bg-white/10">
+          <a class="text-white no-underline font-medium" href="contact.html">Contact</a>
+        </li>
+      </ul>
     </nav>
 
     <!-- Main Content Container -->
     <main class="bg-[#14141e]/70 rounded-xl p-8 mx-auto my-32 max-w-4xl w-[90%] shadow-lg font-slabo">
-        <div class="flex flex-col items-center justify-center text-center space-y-4 min-h-[50vh]">
-            <img src="profile.jpg" alt="Profile Picture" 
-                 class="w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-full object-cover border-2 border-[rgba(100,150,255,0.5)] shadow-[0_0_15px_rgba(100,150,255,0.3)] mb-4">
-            
-            <div class="space-y-2">
-                <h1 class="text-[clamp(1.5rem,5vw,2.25rem)] md:text-[clamp(2rem,5.5vw,3.25rem)] lg:text-[clamp(2.5rem,6vw,4rem)] text-[#f8f3f3] font-medium whitespace-nowrap px-4">
-                    Hi! I'm John Orlie Mascardo
-                </h1>
-                
-                <p class="text-[clamp(1rem,3.5vw,1.5rem)] md:text-[clamp(1.25rem,4vw,2rem)] text-[#f8f3f3] px-4">
-                    An inspiring web developer.
-                </p>
-            </div>
+      <div class="flex flex-col items-center justify-center text-center space-y-4 min-h-[50vh]">
+        <img 
+          src="profile.jpg" 
+          alt="Profile Picture" 
+          class="w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-full object-cover border-2 border-[rgba(100,150,255,0.5)] shadow-[0_0_15px_rgba(100,150,255,0.3)] mb-4"
+        >
+        
+        <div class="space-y-2">
+          <h1 class="text-[clamp(1.5rem,5vw,2.25rem)] md:text-[clamp(2rem,5.5vw,3.25rem)] lg:text-[clamp(2.5rem,6vw,4rem)] text-[#f8f3f3] font-medium whitespace-nowrap px-4">
+            Hi! I'm John Orlie Mascardo
+          </h1>
+          
+          <p class="text-[clamp(1rem,3.5vw,1.5rem)] md:text-[clamp(1.25rem,4vw,2rem)] text-[#f8f3f3] px-4">
+            An inspiring web developer.
+          </p>
         </div>
+      </div>
     </main>
 
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            VANTA.WAVES({
-                el: "#ring",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                scale: 1.00,
-                scaleMobile: 1.00,
-                color: 0x22252d,
-                shininess: 11.00,
-                waveHeight: 16.00,
-                waveSpeed: 1.10,
-                zoom: 0.76
-            })
+      window.addEventListener("DOMContentLoaded", () => {
+        VANTA.WAVES({
+          el: "#ring",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x22252d,
+          shininess: 11.00,
+          waveHeight: 16.00,
+          waveSpeed: 1.10,
+          zoom: 0.76
         })
+      })
     </script>
-</body>
+  </body>
 </html>
