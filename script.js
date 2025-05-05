@@ -1,3 +1,4 @@
+// Tailwind configuration
 tailwind.config = {
     theme: {
         extend: {
@@ -11,7 +12,9 @@ tailwind.config = {
     }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+// Wait for DOM to be fully loaded before initializing Vanta
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize Vanta waves effect
     VANTA.WAVES({
       el: "#ring",
       mouseControls: true,
@@ -26,5 +29,5 @@ window.addEventListener("DOMContentLoaded", () => {
       waveHeight: 16.00,
       waveSpeed: 1.10,
       zoom: 0.76
-    })
-})
+    });
+});
