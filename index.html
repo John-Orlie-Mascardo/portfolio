@@ -8,21 +8,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configure Tailwind -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'bg-dark': '#22252d',
-            },
-            fontFamily: {
-              'slabo': ['"Slabo 27px"', 'serif'],
-            },
-          }
-        }
-      }
-    </script>
+    <!-- script js-->
+    <script src="script.js"></script>
 
     <!-- JScript link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
@@ -77,25 +64,5 @@
         </div>
       </div>
     </main>
-
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        VANTA.WAVES({
-          el: "#ring",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.00,
-          scaleMobile: 1.00,
-          color: 0x22252d,
-          shininess: 11.00,
-          waveHeight: 16.00,
-          waveSpeed: 1.10,
-          zoom: 0.76
-        })
-      })
-    </script>
   </body>
 </html>
