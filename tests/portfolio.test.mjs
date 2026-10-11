@@ -42,5 +42,6 @@ test('all displayed local images and certificate PDFs are served', async () => {
     const response = await fetch(base + path.replaceAll('&amp;', '&'));
     assert.equal(response.status, 200, path);
     assert.match(response.headers.get('content-type'), path.endsWith('.pdf') ? /application\/pdf/ : /image\//);
+    assert.ok((await response.arrayBuffer()).byteLength > 0, `Downloaded asset is empty: ${path}`);
   }
 });
