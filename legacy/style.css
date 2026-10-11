@@ -1,0 +1,8 @@
+.icon a:hover .linkedin {
+    filter: drop-shadow(0 0 10px rgba(10, 102, 194, 0.6));
+    background-color: rgba(10, 102, 194, 0.15);
+}
+.icon a:hover .github {
+    filter: drop-shadow(0 0 10px rgba(36, 41, 46, 0.6));
+    background-color: rgba(36, 41, 46, 0.15);
+}
