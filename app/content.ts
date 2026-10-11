@@ -6,11 +6,11 @@ export const skillGroups = [
 ];
 
 export const certificates = [
-  { title: 'HTML and CSS', issuer: 'IT Specialist', date: 'February 2026', file: 'html-css.pdf', note: 'Valid through February 4, 2031', category: 'Development' },
-  { title: 'Introduction to IoT and Digital Transformation', issuer: 'Cisco Networking Academy', date: 'February 2026', file: 'introduction-iot.pdf', note: 'Course completion', category: 'Connected systems' },
-  { title: 'Getting Started with Cisco Packet Tracer', issuer: 'Cisco Networking Academy', date: 'January 2026', file: 'packet-tracer.pdf', note: 'Course completion', category: 'Networking' },
-  { title: 'PowerPoint 2019 Associate', issuer: 'Microsoft Office Specialist', date: 'May 2024', file: 'powerpoint-associate.pdf', note: 'Associate certification', category: 'Productivity' },
-  { title: 'Word 2019 Associate', issuer: 'Microsoft Office Specialist', date: 'March 2024', file: 'word-associate.pdf', note: 'Associate certification', category: 'Productivity' },
+  { title: 'HTML and CSS', issuer: 'IT Specialist', date: 'February 2026', file: 'html-css.pdf', preview: '/certificates/html-css.webp', previewHeight: 1082, note: 'Valid through February 4, 2031', category: 'Development' },
+  { title: 'Introduction to IoT and Digital Transformation', issuer: 'Cisco Networking Academy', date: 'February 2026', file: 'introduction-iot.pdf', preview: '/certificates/introduction-iot.webp', previewHeight: 949, note: 'Course completion', category: 'Connected systems' },
+  { title: 'Getting Started with Cisco Packet Tracer', issuer: 'Cisco Networking Academy', date: 'January 2026', file: 'packet-tracer.pdf', preview: '/certificates/packet-tracer.webp', previewHeight: 949, note: 'Course completion', category: 'Networking' },
+  { title: 'PowerPoint 2019 Associate', issuer: 'Microsoft Office Specialist', date: 'May 2024', file: 'powerpoint-associate.pdf', preview: '/certificates/powerpoint-associate.webp', previewHeight: 1082, note: 'Associate certification', category: 'Productivity' },
+  { title: 'Word 2019 Associate', issuer: 'Microsoft Office Specialist', date: 'March 2024', file: 'word-associate.pdf', preview: '/certificates/word-associate.webp', previewHeight: 1082, note: 'Associate certification', category: 'Productivity' },
 ];
 
 export const gallery = [

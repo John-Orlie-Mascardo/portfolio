@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import MediaPreview from './MediaPreview';
 import { certificates, gallery, skillGroups } from './content';
 
 const github = 'https://github.com/John-Orlie-Mascardo';
@@ -51,7 +52,12 @@ export default function Home() {
         <div className="shell">
           <SectionHeading number="02" eyebrow="Featured capstone">Real project.<br /><span>Hands-on learning.</span></SectionHeading>
           <div className="project-intro"><div><div className="project-tags"><span>IoT + Web application</span><span className="development-status">In development</span></div><h3 id="project-title">LitterSense<span>.</span></h3><p>A connected litter-box monitoring system that helps cat owners follow activity, odor, and behavior from a web dashboard.</p></div><div className="project-link-block"><a className="button outline" href="https://litter-sense-csp-web-app.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project <Arrow diagonal /></a><span>Opens the live app · Sign-in required</span></div></div>
-          <div className="project-gallery">{gallery.map(item => <figure key={item.src} className={item.hardware ? 'gallery-item hardware-photo' : 'gallery-item'}><div className="gallery-image"><Image src={item.src} width={item.width} height={item.height} sizes="(max-width: 760px) 90vw, 45vw" alt={item.alt} /></div><figcaption><strong>{item.label}</strong><span>{item.caption}</span><a className="gallery-full-link" href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`View full-size ${item.label.slice(5).toLowerCase()} image, opens in a new tab`}>View full-size image <Arrow diagonal /></a></figcaption></figure>)}</div>
+          <div className="project-gallery">{gallery.map(item => <figure key={item.src} className={item.hardware ? 'gallery-item hardware-photo' : 'gallery-item'}>
+            <MediaPreview src={item.src} title={item.label.slice(5)} alt={item.alt} width={item.width} height={item.height} className="gallery-image">
+              <Image src={item.src} width={item.width} height={item.height} sizes="(max-width: 760px) 90vw, 45vw" alt={item.alt} />
+            </MediaPreview>
+            <figcaption><strong>{item.label}</strong><span>{item.caption}</span></figcaption>
+          </figure>)}</div>
           <div className="project-details"><div><p className="eyebrow">What the system does</p><ul className="feature-list"><li>Records litter-box sessions and flags unusual activity.</li><li>Monitors odor to help identify when litter needs changing.</li><li>Offers live viewing and individual cat profiles.</li><li>Provides activity reports and AI-generated behavior insights.</li></ul></div><div><p className="eyebrow">My contribution</p><ul className="feature-list"><li>Manual feature checks, bug reporting, and retesting fixes.</li><li>Assembling the hardware prototype from components.</li><li>AI-assisted frontend, backend, and hardware-to-web integration.</li><li>Reviewing generated results and testing actual behavior.</li></ul></div></div>
           <div className="project-stage"><span className="status-dot" /><p><strong>Tested with cats. Still improving.</strong> Our team is preparing for IT expert evaluation and refining the system toward the final defense.</p><span className="small-label">TEAM CAPSTONE</span></div>
         </div>
@@ -61,7 +67,16 @@ export default function Home() {
 
       <section className="section shell" id="skills" aria-labelledby="skills-title"><SectionHeading id="skills-title" number="03" eyebrow="Skills & tools">A growing<br /><span>toolkit.</span></SectionHeading><p className="section-description">Experience from coursework and hands-on projects, with a focus on learning through practice.</p><div className="skills-grid">{skillGroups.map(group => <article className="skill-card" key={group.title}><span className="small-label">{group.number} / EXPERIENCE</span><h3>{group.title}</h3><p>{group.description}</p><ul className="skill-chips">{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></section>
 
-      <section className="section certificates-section" id="certificates" aria-labelledby="certificates-title"><div className="shell"><SectionHeading id="certificates-title" number="04" eyebrow="Learning milestones">Keeping the<br /><span>learning going.</span></SectionHeading><p className="section-description">Certifications and completed courses across development, connected systems, and productivity.</p><div className="certificate-list">{certificates.map((certificate, index) => <a className="certificate" key={certificate.file} href={`/certificates/${certificate.file}`} target="_blank" rel="noopener noreferrer" aria-label={`View ${certificate.title} certificate PDF, opens in a new tab`}><span className="certificate-index">0{index + 1}</span><div className="certificate-info"><span className="small-label">{certificate.issuer}</span><h3>{certificate.title}</h3><p>{certificate.note}</p></div><div className="certificate-meta"><span>{certificate.date}</span><span className="small-label">{certificate.category}</span></div><span className="certificate-arrow"><Arrow diagonal /></span></a>)}</div></div></section>
+      <section className="section certificates-section" id="certificates" aria-labelledby="certificates-title"><div className="shell">
+        <SectionHeading id="certificates-title" number="04" eyebrow="Learning milestones">Keeping the<br /><span>learning going.</span></SectionHeading>
+        <p className="section-description">Certifications and completed courses across development, connected systems, and productivity. Select a preview to take a closer look.</p>
+        <div className="certificate-list">{certificates.map(certificate => <article className="certificate-card" key={certificate.file}>
+          <MediaPreview src={certificate.preview} title={certificate.title} alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} width={1400} height={certificate.previewHeight} className="certificate-preview" downloadHref={`/certificates/${certificate.file}`}>
+            <Image src={certificate.preview} width={1400} height={certificate.previewHeight} sizes="(max-width: 760px) 90vw, 45vw" alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} />
+          </MediaPreview>
+          <div className="certificate-card-info"><span className="small-label">{certificate.issuer}</span><h3>{certificate.title}</h3><p>{certificate.note}</p><div className="certificate-card-meta"><span>{certificate.date}</span><span>{certificate.category}</span></div></div>
+        </article>)}</div>
+      </div></section>
 
       <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>05</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
     </main>

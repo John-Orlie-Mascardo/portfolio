@@ -31,3 +31,32 @@ nav,.header-contact,.button,.text-link,.hero-socials,.project-tags>span,.skill-c
   .site-footer,.site-footer>span{font-size:12px}
   .site-footer a{min-height:44px;align-items:center;display:inline-flex}
 }.site-header .wordmark{display:inline-flex;align-items:center;min-height:44px}nav a{min-width:44px}
+
+button{font:inherit;color:inherit}button:focus-visible{outline:3px solid var(--blue);outline-offset:5px}
+.media-trigger{display:block;position:relative;width:100%;padding:0;cursor:zoom-in;color:inherit;border:1px solid #424857}
+.preview-hint{position:absolute;right:12px;bottom:12px;display:flex;align-items:center;gap:12px;padding:8px 12px;background:#14141ef0;color:var(--text);border:1px solid #596174;border-radius:4px;font-size:12px}
+.preview-hint>span{font-size:20px;line-height:1}
+.media-trigger:hover .preview-hint{background:var(--blue);color:var(--bg)}
+.certificate-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.certificate-card{min-width:0;border:1px solid var(--line);background:var(--surface)}
+.certificate-preview{aspect-ratio:1400/1082;background:white;border:0;border-bottom:1px solid var(--line)}
+.certificate-preview img{width:100%;height:100%;object-fit:contain}
+.certificate-card-info{padding:24px}
+.certificate-card-info h3{margin-top:10px;font-size:21px}
+.certificate-card-info p{margin-top:10px;color:var(--muted);font-size:14px}
+.certificate-card-meta{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:20px;color:var(--muted);font-size:13px}
+html:has(.media-dialog[open]){overflow:hidden}
+.media-dialog{width:min(1200px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);padding:0;overflow:hidden;border:1px solid #596174;border-radius:8px;background:var(--surface);color:var(--text)}
+.media-dialog::backdrop{background:#070910de}
+.viewer-panel{display:flex;flex-direction:column;max-height:calc(100dvh - 34px);min-height:0}
+.viewer-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 20px;border-bottom:1px solid var(--line);flex-shrink:0}
+.viewer-header h2{font-family:var(--body);font-size:20px;line-height:1.4;letter-spacing:0;overflow-wrap:anywhere}
+.viewer-close{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-width:94px;min-height:44px;padding:8px 12px;border:1px solid #596174;border-radius:4px;background:var(--raised);cursor:pointer;flex-shrink:0}
+.viewer-close:hover{background:var(--blue);color:var(--bg)}
+.viewer-close span{font-size:25px;line-height:1}
+.viewer-image{overflow:auto;min-height:0;padding:16px;background:#10121a;overscroll-behavior:contain}
+.viewer-image img{width:auto;max-width:100%;height:auto;max-height:calc(100dvh - 210px);margin:auto;object-fit:contain}
+.viewer-image.is-zoomed img{max-width:none;max-height:none;margin:0}
+.viewer-actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:14px 20px;border-top:1px solid var(--line);flex-shrink:0}
+.viewer-actions button{cursor:pointer}
+@media(max-width:760px){.certificate-list{grid-template-columns:minmax(0,1fr);gap:24px}.certificate-card-info{padding:20px}.viewer-header{padding:12px;gap:12px}.viewer-header h2{font-size:16px}.viewer-image{padding:8px}.viewer-actions{padding:12px;gap:8px}.viewer-actions .button{padding:12px;gap:12px;font-size:13px;min-height:44px}.preview-hint{right:8px;bottom:8px}}
