@@ -1,0 +1,222 @@
+/* ===== Base Styles ===== */
+.homepagetextcolor { color: rgb(243, 243, 243); }
+.techstacktextcolor { color: rgb(250, 250, 250); }
+.abouttextcolor, .contacttextcolor { color: rgb(255, 255, 255); }
+
+/* Font */
+.slabo-27px-regular {
+    font-family: "Slabo 27px", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* Navigation */
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(20, 20, 30, 0.7);
+    padding: 10px 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-item.active {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-item:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content */
+.main-container {
+    background-color: rgba(20, 20, 30, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 120px auto 50px; /* Increased top margin for navbar spacing */
+    max-width: 800px;
+    width: 90%; /* Default width */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+    box-sizing: border-box;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid rgba(100, 150, 255, 0.5);
+    box-shadow: 0 0 15px rgba(100, 150, 255, 0.3);
+}
+
+.name, .intro {
+    color: rgb(248, 243, 243);
+    width: 360px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#ring {
+    z-index: -1;
+    position: fixed; /* Use fixed to ensure it stays in place */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+}
+
+/* ===== Responsive Adjustments ===== */
+/* Large tablets and small laptops (769px - 1024px) */
+@media (max-width: 1024px) {
+    .main-container {
+        width: 85%;
+        margin: 100px auto 40px;
+        padding: 25px;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 10px;
+    }
+    
+    .nav-item {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    
+    .main-container {
+        width: 90%;
+        margin: 90px auto 30px;
+        padding: 20px;
+    }
+    
+    .container {
+        height: auto;
+        padding: 20px;
+    }
+    
+    .profile {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .name, .intro {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-container {
+        width: 92%;
+        margin: 80px auto 20px;
+        padding: 15px;
+    }
+    .nav-menu {
+        gap: 8px;
+    }
+    
+    .nav-item {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+    
+    .profile {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .name, .intro {
+        font-size: 0.95em;
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Mobile phones (320px - 480px) */
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 5px;
+    }
+    
+    .nav-item {
+        padding: 5px 8px;
+        font-size: 0.8em;
+    }
+    
+    .main-container {
+        width: 95%;
+        margin: 70px auto 15px;
+        padding: 10px;
+    }
+    
+    .profile {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .name, .intro {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 380px) {
+    main {
+        margin-top: calc(3.5rem + 2vh) !important;
+    }
+}
+
+/* Extra small phones (below 320px) */
+@media (max-width: 320px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main-container {
+        width: 98%;
+        margin: 60px auto 10px;
+        padding: 10px;
+    }
+    
+    .name, .intro {
+        font-size: 0.8em;
+    }
+}
