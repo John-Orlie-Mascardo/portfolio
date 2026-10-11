@@ -45,3 +45,16 @@ test('all displayed local images and certificate PDFs are served', async () => {
     assert.ok((await response.arrayBuffer()).byteLength > 0, `Downloaded asset is empty: ${path}`);
   }
 });
+
+test('project images and certificates can be previewed without leaving the portfolio', async () => {
+  const html = await (await fetch(base)).text();
+  const previews = [...html.matchAll(/src="(\/certificates\/[^"?]+\.(?:png|webp))"/g)].map(match => match[1]);
+  assert.equal(new Set(previews).size, 5, 'All five certificates need visible preview images');
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 9, 'Each project image and certificate needs an in-page viewer');
+  for (const path of new Set(previews)) {
+    const response = await fetch(base + path);
+    assert.equal(response.status, 200, path);
+    assert.match(response.headers.get('content-type'), /image\//);
+    assert.ok((await response.arrayBuffer()).byteLength > 0);
+  }
+});
