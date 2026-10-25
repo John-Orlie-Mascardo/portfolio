@@ -58,3 +58,12 @@ test('project images and certificates can be previewed without leaving the portf
     assert.ok((await response.arrayBuffer()).byteLength > 0);
   }
 });
+
+test('Halo background dependencies are available from the same site', async () => {
+  for (const file of ['three.r134.min.js', 'vanta.halo.0.5.24.min.js']) {
+    const response = await fetch(`${base}/vendor/${file}`);
+    assert.equal(response.status, 200, file);
+    assert.match(response.headers.get('content-type'), /javascript/);
+    assert.ok((await response.arrayBuffer()).byteLength > 10000, `Incomplete script: ${file}`);
+  }
+});

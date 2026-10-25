@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import MediaPreview from './MediaPreview';
 import { assetPath } from './asset-path';
+import HaloBackground from './HaloBackground';
 import { certificates, gallery, skillGroups } from './content';
 
 const github = 'https://github.com/John-Orlie-Mascardo';
@@ -24,7 +25,7 @@ export default function Home() {
     </header>
 
     <main id="main">
-      <section className="hero shell" id="home" aria-labelledby="hero-title">
+      <div className="hero-stage"><HaloBackground /><section className="hero shell" id="home" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> Fourth-year IT student</p>
           <p className="intro-name">Hi, I’m John Orlie Mascardo.</p>
@@ -40,7 +41,7 @@ export default function Home() {
           <div className="portrait-note"><span aria-hidden="true">✳</span><p>Build. Test.<br /><strong>Learn. Repeat.</strong></p></div>
         </div>
         <div className="hero-bottom"><span>Software × hardware × curiosity</span><a href="#about">Scroll to discover <span aria-hidden="true">↓</span></a></div>
-      </section>
+      </section></div>
 
       <div className="discipline-strip" aria-hidden="true"><div className="shell"><span>MANUAL TESTING</span><b>✳</b><span>WEB DEVELOPMENT</span><b>✳</b><span>HARDWARE & IoT</span><b>✳</b><span>CONTINUOUS LEARNING</span></div></div>
 
