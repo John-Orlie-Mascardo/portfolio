@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import MediaPreview from './MediaPreview';
+import { assetPath } from './asset-path';
 import { certificates, gallery, skillGroups } from './content';
 
 const github = 'https://github.com/John-Orlie-Mascardo';
@@ -34,7 +35,7 @@ export default function Home() {
           <div className="hero-socials"><a href={github} target="_blank" rel="noopener noreferrer">GitHub <Arrow diagonal /></a><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <Arrow diagonal /></a></div>
         </div>
         <div className="portrait-composition">
-          <div className="portrait-frame"><Image src="/images/john-orlie.jpg" alt="John Orlie Mascardo smiling in a collared shirt" width={2730} height={4096} sizes="(max-width: 760px) 90vw, 42vw" preload className="portrait" /></div>
+          <div className="portrait-frame"><Image src={assetPath('/images/john-orlie.jpg')} alt="John Orlie Mascardo smiling in a collared shirt" width={2730} height={4096} sizes="(max-width: 760px) 90vw, 42vw" preload className="portrait" /></div>
           <span className="portrait-index" aria-hidden="true">01 / THE PERSON BEHIND THE WORK</span>
           <div className="portrait-note"><span aria-hidden="true">✳</span><p>Build. Test.<br /><strong>Learn. Repeat.</strong></p></div>
         </div>
@@ -53,8 +54,8 @@ export default function Home() {
           <SectionHeading number="02" eyebrow="Featured capstone">Real project.<br /><span>Hands-on learning.</span></SectionHeading>
           <div className="project-intro"><div><div className="project-tags"><span>IoT + Web application</span><span className="development-status">In development</span></div><h3 id="project-title">LitterSense<span>.</span></h3><p>A connected litter-box monitoring system that helps cat owners follow activity, odor, and behavior from a web dashboard.</p></div><div className="project-link-block"><a className="button outline" href="https://litter-sense-csp-web-app.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project <Arrow diagonal /></a><span>Opens the live app · Sign-in required</span></div></div>
           <div className="project-gallery">{gallery.map(item => <figure key={item.src} className={item.hardware ? 'gallery-item hardware-photo' : 'gallery-item'}>
-            <MediaPreview src={item.src} title={item.label.slice(5)} alt={item.alt} width={item.width} height={item.height} className="gallery-image">
-              <Image src={item.src} width={item.width} height={item.height} sizes="(max-width: 760px) 90vw, 45vw" alt={item.alt} />
+            <MediaPreview src={assetPath(item.src)} title={item.label.slice(5)} alt={item.alt} width={item.width} height={item.height} className="gallery-image">
+              <Image src={assetPath(item.src)} width={item.width} height={item.height} sizes="(max-width: 760px) 90vw, 45vw" alt={item.alt} />
             </MediaPreview>
             <figcaption><strong>{item.label}</strong><span>{item.caption}</span></figcaption>
           </figure>)}</div>
@@ -71,8 +72,8 @@ export default function Home() {
         <SectionHeading id="certificates-title" number="04" eyebrow="Learning milestones">Keeping the<br /><span>learning going.</span></SectionHeading>
         <p className="section-description">Certifications and completed courses across development, connected systems, and productivity. Select a preview to take a closer look.</p>
         <div className="certificate-list">{certificates.map(certificate => <article className="certificate-card" key={certificate.file}>
-          <MediaPreview src={certificate.preview} title={certificate.title} alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} width={1400} height={certificate.previewHeight} className="certificate-preview" downloadHref={`/certificates/${certificate.file}`}>
-            <Image src={certificate.preview} width={1400} height={certificate.previewHeight} sizes="(max-width: 760px) 90vw, 45vw" alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} />
+          <MediaPreview src={assetPath(certificate.preview)} title={certificate.title} alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} width={1400} height={certificate.previewHeight} className="certificate-preview" downloadHref={assetPath(`/certificates/${certificate.file}`)}>
+            <Image src={assetPath(certificate.preview)} width={1400} height={certificate.previewHeight} sizes="(max-width: 760px) 90vw, 45vw" alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} />
           </MediaPreview>
           <div className="certificate-card-info"><span className="small-label">{certificate.issuer}</span><h3>{certificate.title}</h3><p>{certificate.note}</p><div className="certificate-card-meta"><span>{certificate.date}</span><span>{certificate.category}</span></div></div>
         </article>)}</div>

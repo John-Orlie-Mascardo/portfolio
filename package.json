@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "eslint app next.config.ts",
     "typecheck": "tsc --noEmit",
-    "test": "node --test tests/portfolio.test.mjs"
+    "test": "node --test tests/portfolio.test.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "test:export": "node --test tests/pages-export.test.mjs"
   },
   "dependencies": {
-    "next": "16.4.0",
+    "next": "16.4.3",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
@@ -20,7 +22,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "9.39.5",
-    "eslint-config-next": "16.4.0",
+    "eslint-config-next": "16.4.3",
     "typescript": "^5.9.0"
   }
 }
