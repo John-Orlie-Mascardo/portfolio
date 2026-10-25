@@ -52,3 +52,5 @@ The previous HTML/CSS/JS portfolio and its image assets are preserved under `leg
 The original portrait is unaltered. LitterSense is identified as a team capstone with AI-assisted contributions and captions explaining empty-data screenshots. Certificate previews are rendered from the original one-page PDFs; the PDFs remain downloadable. There is no invented contact address or résumé.
 
 Next.js and its ESLint configuration are pinned to 16.4.3. ESLint remains on 9.39.5 for compatibility with bundled plugins.
+
+The hero uses self-hosted Vanta Halo 0.5.24 and Three.js r134 from public/vendor/, with their license notices. The client component respects reduced-motion preferences and provides a pause control. The portrait is cropped through CSS; the original image file is unchanged.

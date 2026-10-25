@@ -37,3 +37,12 @@ test('old static page URLs return visitors to the corresponding current sections
     assert.match(html, /http-equiv="refresh"/);
   }
 });
+
+test('static export includes the pinned background scripts', async () => {
+  for (const file of ['three.r134.min.js', 'vanta.halo.0.5.24.min.js']) {
+    const script = await readFile(resolve(output, 'vendor', file), 'utf8');
+    assert.ok(script.length > 10000, file);
+    const { Script } = await import('node:vm');
+    new Script(script, { filename: file });
+  }
+});

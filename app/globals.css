@@ -60,3 +60,14 @@ html:has(.media-dialog[open]){overflow:hidden}
 .viewer-actions{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:14px 20px;border-top:1px solid var(--line);flex-shrink:0}
 .viewer-actions button{cursor:pointer}
 @media(max-width:760px){.certificate-list{grid-template-columns:minmax(0,1fr);gap:24px}.certificate-card-info{padding:20px}.viewer-header{padding:12px;gap:12px}.viewer-header h2{font-size:16px}.viewer-image{padding:8px}.viewer-actions{padding:12px;gap:8px}.viewer-actions .button{padding:12px;gap:12px;font-size:13px;min-height:44px}.preview-hint{right:8px;bottom:8px}}
+/* Halo stays decorative and behind the hero's interactive content. */
+.hero-stage{position:relative;isolation:isolate;overflow:hidden;background:var(--bg)}
+.halo-background,.halo-canvas{position:absolute;inset:0}
+.halo-background{z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 65% 48%,#1d2c50 0%,var(--bg) 70%)}
+.halo-background::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14141ed9 0%,#14141e80 40%,#14141e20 75%,#14141e40 100%)}
+.animation-toggle{position:absolute;top:16px;right:max(32px,calc((100% - 1240px)/2));z-index:2;display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:8px 12px;border:1px solid #596174;border-radius:4px;background:#14141ebf;color:var(--muted);font-size:12px;cursor:pointer}
+.animation-toggle:hover{color:var(--text);border-color:var(--blue)}
+.portrait-frame{height:auto;aspect-ratio:1.23}
+.portrait{object-position:66% 4%}
+@media(max-width:760px){.animation-toggle{position:relative;top:auto;right:auto;margin:16px 20px 0;float:right}.hero{clear:both;padding-top:30px}.halo-background::after{background:linear-gradient(180deg,#14141e8c,#14141eb8 55%,#14141e40)}.portrait-composition{max-width:440px}.portrait-frame{height:auto;aspect-ratio:1.23}}
+@media(prefers-reduced-motion:reduce){.halo-canvas{display:none}}@media(max-width:760px){.halo-canvas{max-height:900px}}
