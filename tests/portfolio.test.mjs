@@ -48,7 +48,7 @@ test('all displayed local images and certificate PDFs are served', async () => {
 
 test('project images and certificates can be previewed without leaving the portfolio', async () => {
   const html = await (await fetch(base)).text();
-  const previews = [...html.matchAll(/src="(\/certificates\/[^"?]+\.(?:png|webp))"/g)].map(match => match[1]);
+  const previews = [...html.matchAll(/src="(\/certificates\/[^"?]+\.(?:png|webp)(?:\?[^"<>]*)?)"/g)].map(match => match[1].replaceAll('&amp;', '&'));
   assert.equal(new Set(previews).size, 5, 'All five certificates need visible preview images');
   assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 9, 'Each project image and certificate needs an in-page viewer');
   for (const path of new Set(previews)) {
