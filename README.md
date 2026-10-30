@@ -2,6 +2,8 @@
 
 A static portfolio focused on manual QA, academic projects, and hands-on IoT work. Built with HTML, JavaScript, and Tailwind CSS. The published site uses no Next.js or React runtime.
 
+The page uses a sticky introduction and section navigation beside a scrolling content column on desktop. On smaller screens, the introduction and all section links stack above the content.
+
 **Live site:** [GitHub Pages](https://john-orlie-mascardo.github.io/portfolio/)
 
 ## Run locally

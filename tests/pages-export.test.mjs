@@ -187,3 +187,17 @@ test("published artifact contains no framework runtime or private source files",
   assert.match(script, /prefers-reduced-motion/);
   assert.doesNotMatch(script, /\bReact\b|\bNext\b/);
 });
+
+test("reference structure retains every section in a sticky-sidebar-ready layout", async () => {
+  const html = await readFile(resolve(output, "index.html"), "utf8");
+  assert.match(html, /class="portfolio-layout"/);
+  assert.match(html, /class="site-header portfolio-sidebar"/);
+  assert.match(html, /class="portfolio-content"/);
+  assert.match(html, /class="portrait-section"/);
+  assert.match(html, /class="portrait-section" id="home"/);
+  for (const section of ["about", "project", "course-projects", "workflow", "skills", "certificates", "achievements", "seminars", "contact"]) {
+    assert.match(html, new RegExp(`id="${section}"`));
+    assert.match(html, new RegExp(`<a href="#${section}"`));
+  }
+  assert.doesNotMatch(html, /class="discipline-strip"/);
+});
