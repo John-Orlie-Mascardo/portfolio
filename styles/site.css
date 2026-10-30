@@ -939,7 +939,9 @@
     gap: 4px 14px;
     margin-top: 28px;
   }
-  .sidebar-nav a {
+  .site-header .sidebar-nav a {
+    justify-content: flex-start;
+    padding-inline: 0;
     font-size: 11px;
     letter-spacing: 0.04em;
   }
@@ -969,8 +971,11 @@
   .sidebar-role {
     font-size: 1.8rem;
   }
+  .site-header .sidebar-nav a {
+    gap: 8px;
+  }
   .sidebar-nav a::before {
-    width: 14px;
+    width: 10px;
   }
   .portfolio-content .section h2 {
     font-size: clamp(2.6rem, 11vw, 3.5rem);
@@ -981,6 +986,12 @@
   .portfolio-content .project-gallery,
   .portfolio-content .project-details,
   .portfolio-content .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 340px) {
+  .sidebar-nav {
     grid-template-columns: 1fr;
   }
 }
