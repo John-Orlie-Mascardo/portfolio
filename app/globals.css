@@ -74,3 +74,5 @@ html:has(.media-dialog[open]){overflow:hidden}
 
 .site-header nav{flex-wrap:wrap}
 @media(max-width:760px){.site-header nav{justify-content:flex-start;gap:12px 18px}}
+
+.project-team-heading{margin-top:32px}

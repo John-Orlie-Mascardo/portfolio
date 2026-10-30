@@ -62,3 +62,9 @@ test('seminars show dated attendance evidence and original PDF downloads', async
     assert.ok((await readFile(resolve(output, 'certificates', name + '.pdf'))).subarray(0,5).equals(Buffer.from('%PDF-')));
   }
 });
+
+test('capstone identifies team contributions and separates objectives from pending results', async () => {
+  const html = await readFile(resolve(output, 'index.html'), 'utf8');
+  for (const text of ['Ashton James Caspe', 'Joshua Austria', 'Mac Laurenz Cultura', 'John Orlie Mascardo', 'IoT Integration', 'Manual QA', 'Project objectives', 'React PWA', 'MQ-136', 'Formal evaluation results are still pending.']) assert.ok(html.includes(text), text);
+  assert.ok(!html.includes('preparing for IT expert evaluation'));
+});

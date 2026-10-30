@@ -10,7 +10,7 @@ test('homepage exposes accessible navigation, QA positioning and honest project 
   assert.match(html, /Aspiring QA/);
   assert.match(html, /John Orlie Mascardo/);
   assert.match(html, /AI-assisted/);
-  assert.match(html, /In development/);
+  assert.match(html, /IT expert evaluation/);
   for (const section of ['home', 'about', 'project', 'skills', 'certificates', 'contact']) {
     assert.match(html, new RegExp(`id="${section}"`));
   }
