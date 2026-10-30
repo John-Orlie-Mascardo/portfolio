@@ -50,7 +50,7 @@ test('project images and certificates can be previewed without leaving the portf
   const html = await (await fetch(base)).text();
   const previews = [...html.matchAll(/src="(\/certificates\/[^"?]+\.(?:png|webp)(?:\?[^"<>]*)?)"/g)].map(match => match[1].replaceAll('&amp;', '&'));
   assert.equal(new Set(previews).size, 10, 'All ten certificates need visible preview images');
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 17, 'Each project image, certificate and public award image needs an in-page viewer');
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 19, 'Each project image, certificate and public award image needs an in-page viewer');
   for (const path of new Set(previews)) {
     const response = await fetch(base + path);
     assert.equal(response.status, 200, path);
