@@ -1,12 +1,8 @@
 node_modules/
 .next/
+out/
 .vercel/
 .superpowers/
 *.tsbuildinfo
 .env*
 !.env.example
-
-.vercel
-.env*
-
-out/

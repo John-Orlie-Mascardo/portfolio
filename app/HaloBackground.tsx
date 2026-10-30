@@ -1,16 +1,18 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { assetPath } from './asset-path';
+import Script from "next/script";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { assetPath } from "./asset-path";
 
-const motionQuery = '(prefers-reduced-motion: reduce)';
+const motionQuery = "(prefers-reduced-motion: reduce)";
 function subscribeMotion(onChange: () => void) {
   const query = window.matchMedia(motionQuery);
-  query.addEventListener('change', onChange);
-  return () => query.removeEventListener('change', onChange);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
 }
-function prefersReducedMotion() { return window.matchMedia(motionQuery).matches; }
+function prefersReducedMotion() {
+  return window.matchMedia(motionQuery).matches;
+}
 type Disposable = { dispose: () => void };
 type HaloEffect = {
   destroy: () => void;
@@ -18,11 +20,17 @@ type HaloEffect = {
   bufferTarget?: Disposable;
   bufferFeedback?: Disposable;
 };
-type HaloWindow = Window & { VANTA?: { HALO: (options: Record<string, unknown>) => HaloEffect } };
+type HaloWindow = Window & {
+  VANTA?: { HALO: (options: Record<string, unknown>) => HaloEffect };
+};
 
 export default function HaloBackground() {
   const host = useRef<HTMLDivElement>(null);
-  const reducedMotion = useSyncExternalStore(subscribeMotion, prefersReducedMotion, () => true);
+  const reducedMotion = useSyncExternalStore(
+    subscribeMotion,
+    prefersReducedMotion,
+    () => true,
+  );
   const [paused, setPaused] = useState(false);
   const [failed, setFailed] = useState(false);
   const [threeReady, setThreeReady] = useState(false);
@@ -61,12 +69,40 @@ export default function HaloBackground() {
     };
   }, [enabled, haloReady]);
 
-  return <>
-    <div className="halo-background" aria-hidden="true"><div className="halo-canvas" ref={host} /></div>
-    {!reducedMotion && !failed && <button className="animation-toggle" type="button" aria-pressed={paused} onClick={() => setPaused(!paused)}>{paused ? 'Play background' : 'Pause background'} <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span></button>}
-    {enabled && <>
-      <Script id="halo-three" src={assetPath('/vendor/three.r134.min.js')} onReady={() => setThreeReady(true)} onError={() => setFailed(true)} />
-      {threeReady && <Script id="vanta-halo" src={assetPath('/vendor/vanta.halo.0.5.24.min.js')} onReady={() => setHaloReady(true)} onError={() => setFailed(true)} />}
-    </>}
-  </>;
+  return (
+    <>
+      <div className="halo-background" aria-hidden="true">
+        <div className="halo-canvas" ref={host} />
+      </div>
+      {!reducedMotion && !failed && (
+        <button
+          className="animation-toggle"
+          type="button"
+          aria-pressed={paused}
+          onClick={() => setPaused(!paused)}
+        >
+          {paused ? "Play background" : "Pause background"}{" "}
+          <span aria-hidden="true">{paused ? "▶" : "Ⅱ"}</span>
+        </button>
+      )}
+      {enabled && (
+        <>
+          <Script
+            id="halo-three"
+            src={assetPath("/vendor/three.r134.min.js")}
+            onReady={() => setThreeReady(true)}
+            onError={() => setFailed(true)}
+          />
+          {threeReady && (
+            <Script
+              id="vanta-halo"
+              src={assetPath("/vendor/vanta.halo.0.5.24.min.js")}
+              onReady={() => setHaloReady(true)}
+              onError={() => setFailed(true)}
+            />
+          )}
+        </>
+      )}
+    </>
+  );
 }
