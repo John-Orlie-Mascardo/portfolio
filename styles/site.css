@@ -736,6 +736,8 @@
 
 /* Structural layout inspired by the reference's sticky introduction and reading column. */
 .portfolio-layout {
+  position: relative;
+  z-index: 1;
   width: min(1320px, calc(100% - 96px));
   margin-inline: auto;
   display: grid;
@@ -763,13 +765,19 @@
   scrollbar-width: thin;
 }
 
-.portfolio-sidebar .halo-background {
-  border-radius: 20px;
-  opacity: 0.36;
+.portfolio-halo {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
   overflow: hidden;
 }
-.portfolio-sidebar .halo-background::after {
-  background: linear-gradient(90deg, #14141ef2, #14141ee4 65%, #14141eb8);
+.portfolio-halo .halo-canvas {
+  max-height: none;
+}
+.portfolio-halo::after {
+  background: linear-gradient(90deg, #14141edc, #14141eb8 55%, #14141ed6);
 }
 .portfolio-sidebar .wordmark {
   width: fit-content;
