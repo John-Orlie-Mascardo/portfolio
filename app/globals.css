@@ -71,3 +71,6 @@ html:has(.media-dialog[open]){overflow:hidden}
 .portrait{object-position:66% 4%}
 @media(max-width:760px){.animation-toggle{position:relative;top:auto;right:auto;margin:16px 20px 0;float:right}.hero{clear:both;padding-top:30px}.halo-background::after{background:linear-gradient(180deg,#14141e8c,#14141eb8 55%,#14141e40)}.portrait-composition{max-width:440px}.portrait-frame{height:auto;aspect-ratio:1.23}}
 @media(prefers-reduced-motion:reduce){.halo-canvas{display:none}}@media(max-width:760px){.halo-canvas{max-height:900px}}
+
+.site-header nav{flex-wrap:wrap}
+@media(max-width:760px){.site-header nav{justify-content:flex-start;gap:12px 18px}}

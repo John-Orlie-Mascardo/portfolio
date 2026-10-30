@@ -54,3 +54,5 @@ The original portrait is unaltered. LitterSense is identified as a team capstone
 Next.js and its ESLint configuration are pinned to 16.4.3. ESLint remains on 9.39.5 for compatibility with bundled plugins.
 
 The hero uses self-hosted Vanta Halo 0.5.24 and Three.js r134 from public/vendor/, with their license notices. The client component respects reduced-motion preferences and provides a pause control. The portrait is cropped through CSS; the original image file is unchanged.
+
+Achievements include two Dean’s List certificates, the historical TOEIC result (validity ended April 13, 2026), ongoing DBP RISE scholarship coverage confirmed by the student, and the BSIT 3A team Quiz Bee award with confirmed personal participation. Only the three award images are public. The TOEIC report contains personal identifiers; the DBP signing invitation contains third-party contact details and is not a named scholarship award, so neither original is shipped.

@@ -9,7 +9,7 @@ const prefix = '/portfolio';
 test('Pages artifact contains the current portfolio and working subpath assets', async () => {
   const html = await readFile(resolve(output, 'index.html'), 'utf8');
   assert.match(html, /Aspiring QA/);
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 9);
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 12);
   assert.doesNotMatch(html, /\/_next\/image\?/);
   const urls = new Set([...html.matchAll(/(?:src|href)="([^"<>]+)"/g)].map(match => match[1].replaceAll('&amp;', '&')));
   let images = 0;
@@ -45,4 +45,11 @@ test('static export includes the pinned background scripts', async () => {
     const { Script } = await import('node:vm');
     new Script(script, { filename: file });
   }
+});
+test('achievements retain verified details without exposing private source documents', async () => {
+  const html = await readFile(resolve(output, 'index.html'), 'utf8');
+  for (const text of ['id="achievements"', '91.89', '94.49', '795/990', 'April 13, 2026', 'DBP RISE Scholar', 'Second Runner-up', 'BSIT 3A']) assert.ok(html.includes(text), text);
+  for (const file of ['deans-list-2024-2025.jpg', 'deans-list-2025-2026.jpg', 'it-quiz-bee-2026.jpg']) assert.ok((await stat(resolve(output, 'achievements', file))).size > 0);
+  const { readdir } = await import('node:fs/promises');
+  assert.deepEqual((await readdir(resolve(output, 'achievements'))).sort(), ['deans-list-2024-2025.jpg', 'deans-list-2025-2026.jpg', 'it-quiz-bee-2026.jpg']);
 });

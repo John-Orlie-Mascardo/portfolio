@@ -2,7 +2,7 @@ import Image from 'next/image';
 import MediaPreview from './MediaPreview';
 import { assetPath } from './asset-path';
 import HaloBackground from './HaloBackground';
-import { certificates, gallery, skillGroups } from './content';
+import { achievements, certificates, gallery, skillGroups } from './content';
 
 const github = 'https://github.com/John-Orlie-Mascardo';
 const linkedin = 'https://www.linkedin.com/in/john-orlie-mascardo';
@@ -20,7 +20,7 @@ export default function Home() {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <a className="wordmark" href="#home" aria-label="John Orlie Mascardo, home">JOM<span>.</span></a>
-      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Project</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a></nav>
+      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Project</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a></nav>
       <a className="header-contact" href="#contact">Let’s connect <Arrow diagonal /></a>
     </header>
 
@@ -80,7 +80,18 @@ export default function Home() {
         </article>)}</div>
       </div></section>
 
-      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>05</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
+      <section className="section shell" id="achievements" aria-labelledby="achievements-title">
+        <SectionHeading id="achievements-title" number="05" eyebrow="Achievements & recognition">Progress beyond<br /><span>the classroom.</span></SectionHeading>
+        <p className="section-description">Academic recognition, scholarship support, language learning, and a team competition milestone.</p>
+        <div className="certificate-list">{achievements.map(achievement => <article className="certificate-card" key={achievement.title}>
+          {achievement.image && <MediaPreview src={assetPath(achievement.image.src)} title={achievement.title} alt={achievement.image.alt} width={achievement.image.width} height={achievement.image.height} className="certificate-preview">
+            <Image src={assetPath(achievement.image.src)} alt={achievement.image.alt} width={achievement.image.width} height={achievement.image.height} sizes="(max-width: 760px) 90vw, 45vw" />
+          </MediaPreview>}
+          <div className="certificate-card-info"><span className="small-label">{achievement.category}</span><h3>{achievement.title}</h3><p>{achievement.issuer}</p><p>{achievement.description}</p>{achievement.note && <p>{achievement.note}</p>}<div className="certificate-card-meta"><span>{achievement.date}</span></div></div>
+        </article>)}</div>
+      </section>
+
+      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>06</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
     </main>
     <footer className="shell site-footer"><a className="wordmark" href="#home">JOM<span>.</span></a><span>© {new Date().getFullYear()} John Orlie Mascardo</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
   </>;
