@@ -858,7 +858,7 @@
   align-items: flex-start;
 }
 .portrait-section .portrait-composition {
-  width: min(346px, calc(72% + 46px));
+  width: min(376px, calc(72% + 76px));
   padding: 0 0 18px 10px;
 }
 .portrait-section .portrait-frame {
