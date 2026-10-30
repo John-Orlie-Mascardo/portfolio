@@ -9,7 +9,7 @@ const prefix = "/portfolio";
 test("Pages artifact contains the current portfolio and working subpath assets", async () => {
   const html = await readFile(resolve(output, "index.html"), "utf8");
   assert.match(html, /Aspiring QA/);
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 19);
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 20);
   assert.doesNotMatch(html, /\/_next\/image\?/);
   const urls = new Set(
     [...html.matchAll(/(?:src|href)="([^"<>]+)"/g)].map((match) =>
@@ -40,7 +40,7 @@ test("Pages artifact contains the current portfolio and working subpath assets",
     images >= 10,
     "Portrait, project images and certificate previews must be exported",
   );
-  assert.equal(pdfs, 10);
+  assert.equal(pdfs, 11);
   assert.ok(scripts > 0, "Interactive viewers need exported JavaScript");
   await stat(resolve(output, ".nojekyll"));
 });
@@ -116,6 +116,9 @@ test("seminars show dated attendance evidence and original PDF downloads", async
     "Webinar attendance",
     "Conference attendance",
     "Session attendance",
+    "Pandayan: Servant Leadership and Project Management Training",
+    "Training completion",
+    "February 4, 2024",
   ])
     assert.ok(html.includes(text), text);
   for (const name of [
@@ -124,6 +127,7 @@ test("seminars show dated attendance evidence and original PDF downloads", async
     "global-classroom-day-3",
     "sdca-imrc-2024",
     "global-classroom-day-1",
+    "pandayan-leadership",
   ]) {
     assert.ok(html.includes("/portfolio/certificates/" + name + ".pdf"));
     assert.ok(
