@@ -2,7 +2,7 @@ import Image from 'next/image';
 import MediaPreview from './MediaPreview';
 import { assetPath } from './asset-path';
 import HaloBackground from './HaloBackground';
-import { achievements, certificates, gallery, skillGroups } from './content';
+import { achievements, certificates, gallery, seminars, skillGroups } from './content';
 
 const github = 'https://github.com/John-Orlie-Mascardo';
 const linkedin = 'https://www.linkedin.com/in/john-orlie-mascardo';
@@ -20,7 +20,7 @@ export default function Home() {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <a className="wordmark" href="#home" aria-label="John Orlie Mascardo, home">JOM<span>.</span></a>
-      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Project</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a></nav>
+      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Project</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a><a href="#seminars">Seminars</a></nav>
       <a className="header-contact" href="#contact">Let’s connect <Arrow diagonal /></a>
     </header>
 
@@ -91,7 +91,18 @@ export default function Home() {
         </article>)}</div>
       </section>
 
-      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>06</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
+      <section className="section shell" id="seminars" aria-labelledby="seminars-title">
+        <SectionHeading id="seminars-title" number="06" eyebrow="Seminars & conferences">Learning from<br /><span>new perspectives.</span></SectionHeading>
+        <p className="section-description">Webinars, conferences, and classroom sessions I attended as part of my academic and personal development.</p>
+        <div className="certificate-list">{seminars.map(seminar => <article className="certificate-card" key={seminar.file}>
+          <MediaPreview src={assetPath(seminar.preview)} title={seminar.title} alt={`Attendance certificate for John Orlie Mascardo: ${seminar.title}`} width={1400} height={seminar.previewHeight} className="certificate-preview" downloadHref={assetPath(`/certificates/${seminar.file}`)}>
+            <Image src={assetPath(seminar.preview)} width={1400} height={seminar.previewHeight} sizes="(max-width: 760px) 90vw, 45vw" alt={`Attendance certificate for John Orlie Mascardo: ${seminar.title}`} />
+          </MediaPreview>
+          <div className="certificate-card-info"><span className="small-label">{seminar.category}</span><h3>{seminar.title}</h3><p>{seminar.issuer}</p><div className="certificate-card-meta"><span>{seminar.date}</span></div></div>
+        </article>)}</div>
+      </section>
+
+      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>07</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
     </main>
     <footer className="shell site-footer"><a className="wordmark" href="#home">JOM<span>.</span></a><span>© {new Date().getFullYear()} John Orlie Mascardo</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
   </>;

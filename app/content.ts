@@ -27,3 +27,51 @@ export const achievements = [
   { title: 'DBP RISE Scholar', category: 'Scholarship', issuer: 'Development Bank of the Philippines · St. Dominic College of Asia', date: 'First through fourth year · Ongoing', description: 'Scholarship support covering my studies from first year through graduation under the DBP Resources for Inclusive and Sustainable Education (RISE) program.' },
   { title: 'IT Quiz Bee — Second Runner-up', category: 'Competition & team award', issuer: 'St. Dominic College of Asia · Domini Xode', date: 'BSIT Week · April 16, 2026', description: 'Competed with my teammates representing BSIT 3A and earned second runner-up in the IT Quiz Bee.', image: { src: '/achievements/it-quiz-bee-2026.jpg', width: 2948, height: 2088, alt: 'Certificate of Excellence awarded to BSIT 3A for second runner-up in the IT Quiz Bee during BSIT Week 2026' } },
 ];
+
+export const seminars = [
+  {
+    "title": "Helping Hands, Healing Minds: Psychological First Aid for Every Student",
+    "issuer": "St. Dominic College of Asia · Department of Student Affairs & Services",
+    "date": "October 24, 2025",
+    "category": "Webinar attendance",
+    "file": "psychological-first-aid.pdf",
+    "preview": "/certificates/psychological-first-aid.webp",
+    "previewHeight": 788
+  },
+  {
+    "title": "5th SDCA International Multidisciplinary Research Conference",
+    "issuer": "St. Dominic College of Asia",
+    "date": "April 24, 2025",
+    "category": "Conference attendance",
+    "file": "sdca-imrc-2025.pdf",
+    "preview": "/certificates/sdca-imrc-2025.webp",
+    "previewHeight": 1050
+  },
+  {
+    "title": "Global Classroom Sessions: Global Trends and Practices — Day 3",
+    "issuer": "St. Dominic College of Asia",
+    "date": "May 25, 2024",
+    "category": "Session attendance",
+    "file": "global-classroom-day-3.pdf",
+    "preview": "/certificates/global-classroom-day-3.webp",
+    "previewHeight": 989
+  },
+  {
+    "title": "4th SDCA International Multidisciplinary Research Conference — Day 1, Morning Session",
+    "issuer": "St. Dominic College of Asia",
+    "date": "May 22, 2024",
+    "category": "Conference attendance",
+    "file": "sdca-imrc-2024.pdf",
+    "preview": "/certificates/sdca-imrc-2024.webp",
+    "previewHeight": 1050
+  },
+  {
+    "title": "Global Classroom Sessions: Global Trends and Practices — Day 1",
+    "issuer": "St. Dominic College of Asia",
+    "date": "May 21, 2024",
+    "category": "Session attendance",
+    "file": "global-classroom-day-1.pdf",
+    "preview": "/certificates/global-classroom-day-1.webp",
+    "previewHeight": 989
+  }
+];

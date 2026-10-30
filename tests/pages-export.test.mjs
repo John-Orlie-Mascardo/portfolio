@@ -9,7 +9,7 @@ const prefix = '/portfolio';
 test('Pages artifact contains the current portfolio and working subpath assets', async () => {
   const html = await readFile(resolve(output, 'index.html'), 'utf8');
   assert.match(html, /Aspiring QA/);
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 12);
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 17);
   assert.doesNotMatch(html, /\/_next\/image\?/);
   const urls = new Set([...html.matchAll(/(?:src|href)="([^"<>]+)"/g)].map(match => match[1].replaceAll('&amp;', '&')));
   let images = 0;
@@ -25,7 +25,7 @@ test('Pages artifact contains the current portfolio and working subpath assets',
     if (relative.endsWith('.js')) scripts++;
   }
   assert.ok(images >= 10, 'Portrait, project images and certificate previews must be exported');
-  assert.equal(pdfs, 5);
+  assert.equal(pdfs, 10);
   assert.ok(scripts > 0, 'Interactive viewers need exported JavaScript');
   await stat(resolve(output, '.nojekyll'));
 });
@@ -52,4 +52,13 @@ test('achievements retain verified details without exposing private source docum
   for (const file of ['deans-list-2024-2025.jpg', 'deans-list-2025-2026.jpg', 'it-quiz-bee-2026.jpg']) assert.ok((await stat(resolve(output, 'achievements', file))).size > 0);
   const { readdir } = await import('node:fs/promises');
   assert.deepEqual((await readdir(resolve(output, 'achievements'))).sort(), ['deans-list-2024-2025.jpg', 'deans-list-2025-2026.jpg', 'it-quiz-bee-2026.jpg']);
+});
+
+test('seminars show dated attendance evidence and original PDF downloads', async () => {
+  const html = await readFile(resolve(output, 'index.html'), 'utf8');
+  for (const text of ['id="seminars"', 'Psychological First Aid', 'October 24, 2025', 'April 24, 2025', 'May 25, 2024', 'May 22, 2024', 'May 21, 2024', 'Webinar attendance', 'Conference attendance', 'Session attendance']) assert.ok(html.includes(text), text);
+  for (const name of ['psychological-first-aid', 'sdca-imrc-2025', 'global-classroom-day-3', 'sdca-imrc-2024', 'global-classroom-day-1']) {
+    assert.ok(html.includes('/portfolio/certificates/' + name + '.pdf'));
+    assert.ok((await readFile(resolve(output, 'certificates', name + '.pdf'))).subarray(0,5).equals(Buffer.from('%PDF-')));
+  }
 });

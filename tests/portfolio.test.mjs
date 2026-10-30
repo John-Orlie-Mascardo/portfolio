@@ -33,7 +33,7 @@ test('old portfolio URLs preserve their destinations', async () => {
 test('all displayed local images and certificate PDFs are served', async () => {
   const html = await (await fetch(base)).text();
   const paths = new Set([...html.matchAll(/href="(\/certificates\/[^"?]+\.pdf)"/g)].map(match => match[1]));
-  assert.equal(paths.size, 5);
+  assert.equal(paths.size, 10);
   const imagePaths = [...html.matchAll(/(?:src|srcSet)="([^"<>]+)"/g)]
     .flatMap(match => match[1].split(',').map(value => value.trim().split(' ')[0]))
     .filter(value => value.startsWith('/_next/image') || value.startsWith('/images/'));
@@ -49,8 +49,8 @@ test('all displayed local images and certificate PDFs are served', async () => {
 test('project images and certificates can be previewed without leaving the portfolio', async () => {
   const html = await (await fetch(base)).text();
   const previews = [...html.matchAll(/src="(\/certificates\/[^"?]+\.(?:png|webp)(?:\?[^"<>]*)?)"/g)].map(match => match[1].replaceAll('&amp;', '&'));
-  assert.equal(new Set(previews).size, 5, 'All five certificates need visible preview images');
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 12, 'Each project image, certificate and public award image needs an in-page viewer');
+  assert.equal(new Set(previews).size, 10, 'All ten certificates need visible preview images');
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 17, 'Each project image, certificate and public award image needs an in-page viewer');
   for (const path of new Set(previews)) {
     const response = await fetch(base + path);
     assert.equal(response.status, 200, path);
