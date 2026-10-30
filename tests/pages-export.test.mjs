@@ -57,13 +57,20 @@ test("old static page URLs return visitors to the corresponding current sections
   }
 });
 
-test("static export includes the pinned background scripts", async () => {
-  for (const file of ["three.r134.min.js", "vanta.halo.0.5.24.min.js"]) {
+test("static export includes the configured particle background", async () => {
+  for (const file of ["particles.2.0.0.min.js"]) {
     const script = await readFile(resolve(output, "vendor", file), "utf8");
     assert.ok(script.length > 10000, file);
     const { Script } = await import("node:vm");
     new Script(script, { filename: file });
   }
+  const config = JSON.parse(await readFile(resolve(output, "vendor", "particles-config.json"), "utf8"));
+  assert.equal(config.particles.number.value, 160);
+  assert.equal(config.particles.color.value, "#1d5f8e");
+  const html = await readFile(resolve(output, "index.html"), "utf8");
+  assert.match(html, /id="particles-js"/);
+  assert.doesNotMatch(html, /Pause background|View larger/);
+  assert.match(html, /ClickUp and Gmail/);
 });
 test("achievements retain verified details and authorized supporting images", async () => {
   const html = await readFile(resolve(output, "index.html"), "utf8");

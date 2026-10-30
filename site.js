@@ -26,11 +26,7 @@ for (const dialog of dialogs) {
 }
 
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
-const toggle = document.querySelector('.animation-toggle');
-const host = document.querySelector('.halo-canvas');
-let paused = false;
-let effect;
-let failed = false;
+const host = document.querySelector('#particles-js');
 let loadPromise;
 
 function loadScript(src) {
@@ -43,57 +39,32 @@ function loadScript(src) {
   });
 }
 
-function destroyHalo() {
-  if (!effect) return;
-  const { renderer, bufferTarget, bufferFeedback } = effect;
-  effect.destroy();
-  bufferTarget?.dispose();
-  bufferFeedback?.dispose();
-  renderer?.dispose();
-  renderer?.forceContextLoss();
-  effect = undefined;
-}
-
-async function updateHalo() {
-  toggle.hidden = motion.matches || failed;
-  if (motion.matches || paused || failed) {
-    destroyHalo();
+async function updateParticles() {
+  if (motion.matches) {
+    if (window.pJSDom?.length) {
+      window.pJSDom[0].pJS.fn.vendors.destroypJS();
+      window.pJSDom = [];
+    }
     return;
   }
+
   try {
-    loadPromise ??= (async () => {
-      await loadScript(`${basePath}/vendor/three.r134.min.js`);
-      await loadScript(`${basePath}/vendor/vanta.halo.0.5.24.min.js`);
-    })();
-    await loadPromise;
-    if (motion.matches || paused || effect) return;
-    effect = window.VANTA.HALO({
-      el: host,
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200,
-      minWidth: 200,
-      backgroundColor: 0x14141e,
-      baseColor: 0x001a59,
-      xOffset: 0.12,
-      scale: 1.5,
-      scaleMobile: 2,
-    });
-  } catch {
-    failed = true;
-    toggle.hidden = true;
-    destroyHalo();
+    loadPromise ??= Promise.all([
+      loadScript(`${basePath}/vendor/particles.2.0.0.min.js`),
+      fetch(`${basePath}/vendor/particles-config.json`).then((response) => {
+        if (!response.ok) throw new Error('Particle config unavailable');
+        return response.json();
+      }),
+    ]);
+    const [, config] = await loadPromise;
+    if (motion.matches || window.pJSDom?.length) return;
+    // Listen on the window so the decorative canvas never blocks page links.
+    config.interactivity.detect_on = 'window';
+    window.particlesJS(host.id, config);
+  } catch (error) {
+    console.warn('Animated background unavailable:', error);
   }
 }
 
-toggle.addEventListener('click', () => {
-  paused = !paused;
-  toggle.setAttribute('aria-pressed', String(paused));
-  toggle.innerHTML = paused
-    ? 'Play background <span aria-hidden="true">▶</span>'
-    : 'Pause background <span aria-hidden="true">Ⅱ</span>';
-  updateHalo();
-});
-motion.addEventListener('change', updateHalo);
-updateHalo();
+motion.addEventListener('change', updateParticles);
+updateParticles();

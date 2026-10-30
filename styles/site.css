@@ -435,16 +435,9 @@
     @apply block relative w-full p-0 cursor-zoom-in text-inherit border border-[#424857];
     border-style: solid;
   }
-  .preview-hint {
-    @apply absolute right-3 bottom-3 flex items-center gap-3 px-3 py-2 text-foreground border border-[#596174] rounded text-[12px];
-    border-style: solid;
-    background: #14141ef0;
-  }
-  .preview-hint > span {
-    @apply text-[20px] leading-none;
-  }
-  .media-trigger:hover .preview-hint {
-    @apply bg-accent text-background;
+  .media-trigger:hover,
+  .media-trigger:focus-visible {
+    @apply border-accent;
   }
   .certificate-card {
     @apply min-w-0 border border-line bg-surface;
@@ -527,7 +520,7 @@
   }
   .halo-background {
     @apply -z-1 pointer-events-none;
-    background: radial-gradient(ellipse at 65% 48%, #1d2c50 0%, var(--bg) 70%);
+    background: var(--bg);
   }
   .halo-background::after {
     content: "";
@@ -539,15 +532,6 @@
       #14141e20 75%,
       #14141e40 100%
     );
-  }
-  .animation-toggle {
-    @apply absolute top-4 z-2 inline-flex items-center gap-3 min-h-11 px-3 py-2 border border-[#596174] rounded text-muted text-[12px] cursor-pointer;
-    border-style: solid;
-    right: max(32px, calc((100% - 1240px) / 2));
-    background: #14141ebf;
-  }
-  .animation-toggle:hover {
-    @apply text-foreground border-accent;
   }
   .project-team-heading {
     @apply mt-8;
@@ -711,12 +695,6 @@
     .viewer-actions .button {
       @apply p-3 gap-3 text-[13px] min-h-11;
     }
-    .preview-hint {
-      @apply right-2 bottom-2;
-    }
-    .animation-toggle {
-      @apply relative top-auto right-auto mt-4 mx-5 mb-0 float-right;
-    }
     .halo-background::after {
       background: linear-gradient(180deg, #14141e8c, #14141eb8 55%, #14141e40);
     }
@@ -777,7 +755,7 @@
   max-height: none;
 }
 .portfolio-halo::after {
-  background: linear-gradient(90deg, #14141edc, #14141eb8 55%, #14141ed6);
+  background: linear-gradient(90deg, #14141ebf, #14141e88 55%, #14141ebf);
 }
 .portfolio-sidebar .wordmark {
   width: fit-content;
@@ -863,12 +841,7 @@
   gap: 20px;
   margin: 0;
 }
-.portfolio-sidebar .animation-toggle {
-  position: static;
-  float: none;
-  margin: 0;
-  background: #14141ed9;
-}
+
 
 .portfolio-content {
   min-width: 0;
@@ -885,7 +858,7 @@
   align-items: flex-start;
 }
 .portrait-section .portrait-composition {
-  width: min(300px, 72%);
+  width: min(306px, calc(72% + 6px));
   padding: 0 0 18px 10px;
 }
 .portrait-section .portrait-frame {
@@ -1003,7 +976,7 @@
     font-size: clamp(2.6rem, 11vw, 3.5rem);
   }
   .portrait-section .portrait-composition {
-    width: min(250px, 80%);
+    width: min(256px, calc(80% + 6px));
   }
   .portfolio-content .project-gallery,
   .portfolio-content .project-details,

@@ -21,7 +21,7 @@ Open <http://localhost:3000/portfolio/>. After changing the HTML, CSS, or JavaSc
 
 - `index.html` — page content and layout.
 - `styles/site.css` — Tailwind source, theme, and component styles.
-- `site.js` — image viewers and the optional Halo background.
+- `site.js` — image viewers and the particle background.
 - `public/` — photos, PDF certificates, previews, and licensed background scripts.
 - `scripts/build-pages.mjs` — builds the static GitHub Pages site in `out/`.
 - `scripts/serve.mjs` — serves that build locally at `/portfolio/`.
@@ -47,4 +47,4 @@ LitterSense is a team capstone; personal contributions and ongoing evaluation ar
 
 The original TOEIC score report and DBP RISE signing invitation are displayed with the student's authorization. The TOEIC validity end date is shown, and the DBP supporting document is identified as an invitation.
 
-Vanta Halo 0.5.24 and Three.js r134 are self-hosted in `public/vendor/`, with their licenses. The optional animated background pauses on request and respects reduced-motion settings.
+particles.js 2.0.0 is self-hosted in `public/vendor/` with its MIT license. The background uses `particles-config.json` and respects reduced-motion settings.
