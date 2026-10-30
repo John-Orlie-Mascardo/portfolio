@@ -27,7 +27,7 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
-      - name: Lint
+      - name: Check JavaScript syntax
         run: npm run lint
       - name: Build static portfolio
         run: npm run build:pages

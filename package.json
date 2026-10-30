@@ -1,31 +1,18 @@
 {
-  "name": "john-orlie-portfolio",
-  "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint app next.config.ts",
-    "typecheck": "tsc --noEmit",
-    "test": "node --test tests/portfolio.test.mjs",
+    "dev": "npm run build && node scripts/serve.mjs",
     "build:pages": "node scripts/build-pages.mjs",
-    "test:export": "node --test tests/pages-export.test.mjs"
-  },
-  "dependencies": {
-    "next": "16.4.3",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "test": "node --test tests/pages-export.test.mjs",
+    "test:export": "node --test tests/pages-export.test.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "lint": "node --check site.js && node --check scripts/build-pages.mjs && node --check scripts/serve.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
-    "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "eslint": "9.39.5",
-    "eslint-config-next": "16.4.3",
     "postcss": "8.5.32",
-    "tailwindcss": "4.3.3",
-    "typescript": "^5.9.0"
-  }
+    "tailwindcss": "4.3.3"
+  },
+  "version": "1.0.0",
+  "name": "john-orlie-portfolio",
+  "private": true
 }

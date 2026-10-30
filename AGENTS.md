@@ -1,9 +1,7 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# Portfolio repository instructions
 
-## This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
-
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
-
-<!-- END:nextjs-agent-rules -->
+- This is a static HTML, JavaScript, and Tailwind CSS site. Do not add Next.js or React unless the owner asks.
+- Keep the public page honest about the student's actual QA experience, individual contributions, and the capstone's evaluation status.
+- Preserve the GitHub Pages `/portfolio/` base path, image previews, PDF downloads, keyboard-accessible dialogs, and reduced-motion behavior.
+- Run `npm run lint`, `npm run build`, and `npm test` after changes.
+- Keep `.env*` files private. The build copies only `public/` and selected compiled files into `out/`.

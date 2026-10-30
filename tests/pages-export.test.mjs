@@ -170,3 +170,20 @@ test("course projects retain accurate years, contributions and private repositor
   assert.equal((section.match(/repository · Private/g) || []).length, 3);
   assert.ok(!section.includes("<img"), "No invented project screenshots");
 });
+
+test("published artifact contains no framework runtime or private source files", async () => {
+  const html = await readFile(resolve(output, "index.html"), "utf8");
+  assert.doesNotMatch(html, /_next\/|__NEXT_DATA__|TURBOPACK|__BASE__/);
+  assert.match(html, /src="\/portfolio\/site\.js"/);
+  assert.match(html, /href="\/portfolio\/site\.css"/);
+  for (const privateFile of [
+    ".env.local", ".env", "AGENTS.md", "README.md", "package.json", "next.config.ts"
+  ]) {
+    await assert.rejects(stat(resolve(output, privateFile)), { code: "ENOENT" });
+  }
+  await assert.rejects(stat(resolve(output, "_next")), { code: "ENOENT" });
+  const script = await readFile(resolve(output, "site.js"), "utf8");
+  assert.match(script, /showModal\(\)/);
+  assert.match(script, /prefers-reduced-motion/);
+  assert.doesNotMatch(script, /\bReact\b|\bNext\b/);
+});
