@@ -858,7 +858,7 @@
   align-items: flex-start;
 }
 .portrait-section .portrait-composition {
-  width: min(306px, calc(72% + 6px));
+  width: min(346px, calc(72% + 46px));
   padding: 0 0 18px 10px;
 }
 .portrait-section .portrait-frame {
@@ -976,7 +976,7 @@
     font-size: clamp(2.6rem, 11vw, 3.5rem);
   }
   .portrait-section .portrait-composition {
-    width: min(256px, calc(80% + 6px));
+    width: min(296px, calc(80% + 46px));
   }
   .portfolio-content .project-gallery,
   .portfolio-content .project-details,
