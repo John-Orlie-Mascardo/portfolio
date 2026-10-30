@@ -20,7 +20,7 @@ export default function Home() {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <a className="wordmark" href="#home" aria-label="John Orlie Mascardo, home">JOM<span>.</span></a>
-      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Project</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a><a href="#seminars">Seminars</a></nav>
+      <nav aria-label="Main navigation"><a href="#about">About</a><a href="#project">Capstone</a><a href="#course-projects">Course projects</a><a href="#skills">Skills</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a><a href="#seminars">Seminars</a></nav>
       <a className="header-contact" href="#contact">Let’s connect <Arrow diagonal /></a>
     </header>
 
@@ -69,12 +69,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section shell" id="course-projects" aria-labelledby="course-projects-title">
+        <SectionHeading id="course-projects-title" number="03" eyebrow="Course projects">Building skills.<br /><span>One project at a time.</span></SectionHeading>
+        <p className="section-description">Team projects from my third- and second-year coursework, with my individual contributions identified below.</p>
+        <div className="skills-grid">
+          <article className="skill-card"><span className="small-label">Third year · Team project</span><h3>CCONNECT</h3><p>Application Development / System Integration and Application (SIA1)</p><p>A shopping application with product browsing, cart and checkout screens, order management, and chat.</p><h4 className="eyebrow project-team-heading">My contribution</h4><p>Contributed to frontend development and project documentation.</p><ul className="skill-chips"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>Node.js</li><li>MongoDB</li><li>Socket.IO</li></ul><div className="course-project-links"><a className="text-link" href="https://github.com/John-Orlie-Mascardo/cconnect-frontend" target="_blank" rel="noopener noreferrer">Frontend repository · Private <Arrow diagonal /></a><a className="text-link" href="https://github.com/John-Orlie-Mascardo/cconnect-backend" target="_blank" rel="noopener noreferrer">Backend repository · Private <Arrow diagonal /></a></div></article>
+          <article className="skill-card"><span className="small-label">Second year · Team midterm project</span><h3>BYTES</h3><p>Mobile Development</p><p>An Android cookbook application for exploring recipes, categories, and ingredients.</p><h4 className="eyebrow project-team-heading">My contribution</h4><p>Contributed to the Android user interface and project documentation.</p><ul className="skill-chips"><li>Java</li><li>Android</li><li>XML layouts</li><li>Android Studio</li><li>Gradle</li></ul><div className="course-project-links"><a className="text-link" href="https://github.com/Kscopee/Bytes-Cookbook-Midterm-Project" target="_blank" rel="noopener noreferrer">Project repository · Private <Arrow diagonal /></a></div></article>
+        </div>
+        <p className="section-description course-project-access">Source repositories are private and require authorized GitHub access.</p>
+      </section>
+
       <section className="section shell workflow" aria-labelledby="workflow-title"><div><p className="eyebrow">How I work</p><h2 id="workflow-title">Small checks.<br /><span>Better results.</span></h2><p className="workflow-note">I also shared Monday, Wednesday, and Friday team updates during our third-year second semester: completed work, next steps, and blockers.</p></div><ol className="process-list"><li><span>01</span><div><h3>Try & observe</h3><p>Use the feature and compare its behavior with the expected result.</p></div></li><li><span>02</span><div><h3>Report & communicate</h3><p>Share the problem with teammates and explain what happened.</p></div></li><li><span>03</span><div><h3>Retest & improve</h3><p>Check the fix, review the result, and keep iterating.</p></div></li></ol></section>
 
-      <section className="section shell" id="skills" aria-labelledby="skills-title"><SectionHeading id="skills-title" number="03" eyebrow="Skills & tools">A growing<br /><span>toolkit.</span></SectionHeading><p className="section-description">Experience from coursework and hands-on projects, with a focus on learning through practice.</p><div className="skills-grid">{skillGroups.map(group => <article className="skill-card" key={group.title}><span className="small-label">{group.number} / EXPERIENCE</span><h3>{group.title}</h3><p>{group.description}</p><ul className="skill-chips">{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></section>
+      <section className="section shell" id="skills" aria-labelledby="skills-title"><SectionHeading id="skills-title" number="04" eyebrow="Skills & tools">A growing<br /><span>toolkit.</span></SectionHeading><p className="section-description">Experience from coursework and hands-on projects, with a focus on learning through practice.</p><div className="skills-grid">{skillGroups.map(group => <article className="skill-card" key={group.title}><span className="small-label">{group.number} / EXPERIENCE</span><h3>{group.title}</h3><p>{group.description}</p><ul className="skill-chips">{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></section>
 
       <section className="section certificates-section" id="certificates" aria-labelledby="certificates-title"><div className="shell">
-        <SectionHeading id="certificates-title" number="04" eyebrow="Learning milestones">Keeping the<br /><span>learning going.</span></SectionHeading>
+        <SectionHeading id="certificates-title" number="05" eyebrow="Learning milestones">Keeping the<br /><span>learning going.</span></SectionHeading>
         <p className="section-description">Certifications and completed courses across development, connected systems, and productivity. Select a preview to take a closer look.</p>
         <div className="certificate-list">{certificates.map(certificate => <article className="certificate-card" key={certificate.file}>
           <MediaPreview src={assetPath(certificate.preview)} title={certificate.title} alt={`${certificate.title} certificate awarded to John Orlie Mascardo`} width={1400} height={certificate.previewHeight} className="certificate-preview" downloadHref={assetPath(`/certificates/${certificate.file}`)}>
@@ -85,7 +95,7 @@ export default function Home() {
       </div></section>
 
       <section className="section shell" id="achievements" aria-labelledby="achievements-title">
-        <SectionHeading id="achievements-title" number="05" eyebrow="Achievements & recognition">Progress beyond<br /><span>the classroom.</span></SectionHeading>
+        <SectionHeading id="achievements-title" number="06" eyebrow="Achievements & recognition">Progress beyond<br /><span>the classroom.</span></SectionHeading>
         <p className="section-description">Academic recognition, scholarship support, language learning, and a team competition milestone.</p>
         <div className="certificate-list">{achievements.map(achievement => <article className="certificate-card" key={achievement.title}>
           {achievement.image && <MediaPreview src={assetPath(achievement.image.src)} title={achievement.title} alt={achievement.image.alt} width={achievement.image.width} height={achievement.image.height} className="certificate-preview">
@@ -96,7 +106,7 @@ export default function Home() {
       </section>
 
       <section className="section shell" id="seminars" aria-labelledby="seminars-title">
-        <SectionHeading id="seminars-title" number="06" eyebrow="Seminars & conferences">Learning from<br /><span>new perspectives.</span></SectionHeading>
+        <SectionHeading id="seminars-title" number="07" eyebrow="Seminars & conferences">Learning from<br /><span>new perspectives.</span></SectionHeading>
         <p className="section-description">Webinars, conferences, and classroom sessions I attended as part of my academic and personal development.</p>
         <div className="certificate-list">{seminars.map(seminar => <article className="certificate-card" key={seminar.file}>
           <MediaPreview src={assetPath(seminar.preview)} title={seminar.title} alt={`Attendance certificate for John Orlie Mascardo: ${seminar.title}`} width={1400} height={seminar.previewHeight} className="certificate-preview" downloadHref={assetPath(`/certificates/${seminar.file}`)}>
@@ -106,7 +116,7 @@ export default function Home() {
         </article>)}</div>
       </section>
 
-      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>07</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
+      <section className="section shell contact" id="contact" aria-labelledby="contact-title"><p className="eyebrow"><span>08</span> Let’s connect</p><h2 id="contact-title">Good work starts<br />with a <span>conversation.</span></h2><p>I’m building my skills and exploring a future in QA.<br />Connect with me or take a closer look at my work.</p><div className="contact-links"><a className="button primary" href={linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <Arrow diagonal /></a><a className="button outline" href={github} target="_blank" rel="noopener noreferrer">Explore my GitHub <Arrow diagonal /></a></div></section>
     </main>
     <footer className="shell site-footer"><a className="wordmark" href="#home">JOM<span>.</span></a><span>© {new Date().getFullYear()} John Orlie Mascardo</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
   </>;

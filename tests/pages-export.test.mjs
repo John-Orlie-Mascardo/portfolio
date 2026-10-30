@@ -68,3 +68,13 @@ test('capstone identifies team contributions and separates objectives from pendi
   for (const text of ['Ashton James Caspe', 'Joshua Austria', 'Mac Laurenz Cultura', 'John Orlie Mascardo', 'IoT Integration', 'Manual QA', 'Project objectives', 'React PWA', 'MQ-136', 'Formal evaluation results are still pending.']) assert.ok(html.includes(text), text);
   assert.ok(!html.includes('preparing for IT expert evaluation'));
 });
+
+test('course projects retain accurate years, contributions and private repository labels', async () => {
+  const html = await readFile(resolve(output, 'index.html'), 'utf8');
+  const section = html.split('id="course-projects"')[1]?.split('</section>')[0];
+  assert.ok(section, 'Course projects section must be exported');
+  for (const text of ['CCONNECT', 'Third year', 'SIA1', 'BYTES', 'Second year', 'Mobile Development', 'frontend development and project documentation', 'Android user interface and project documentation', 'authorized GitHub access']) assert.ok(section.includes(text), text);
+  for (const repo of ['John-Orlie-Mascardo/cconnect-frontend', 'John-Orlie-Mascardo/cconnect-backend', 'Kscopee/Bytes-Cookbook-Midterm-Project']) assert.ok(section.includes('https://github.com/' + repo), repo);
+  assert.equal((section.match(/repository · Private/g) || []).length,3);
+  assert.ok(!section.includes('<img'), 'No invented project screenshots');
+});
