@@ -9,7 +9,7 @@ const prefix = "/portfolio";
 test("Pages artifact contains the current portfolio and working subpath assets", async () => {
   const html = await readFile(resolve(output, "index.html"), "utf8");
   assert.match(html, /Aspiring QA/);
-  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 20);
+  assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 24);
   assert.doesNotMatch(html, /\/_next\/image\?/);
   const urls = new Set(
     [...html.matchAll(/(?:src|href)="([^"<>]+)"/g)].map((match) =>
@@ -179,7 +179,7 @@ test("course projects retain accurate years, contributions and private repositor
   ])
     assert.ok(section.includes("https://github.com/" + repo), repo);
   assert.equal((section.match(/repository · Private/g) || []).length, 3);
-  assert.ok(!section.includes("<img"), "No invented project screenshots");
+  assert.equal((section.match(/class="course-evidence-item"/g) || []).length, 4);
 });
 
 test("published artifact contains no framework runtime or private source files", async () => {
@@ -211,4 +211,13 @@ test("reference structure retains every section in a sticky-sidebar-ready layout
     assert.match(html, new RegExp(`<a href="#${section}"`));
   }
   assert.doesNotMatch(html, /class="discipline-strip"/);
+});
+
+test("course projects include public visual evidence with clear team attribution", async () => {
+  const html = await readFile(resolve(output, "index.html"), "utf8");
+  for (const name of ["cconnect-dashboard", "cconnect-notifications", "bytes-results", "bytes-recipe"]) {
+    assert.ok(html.includes(`/portfolio/images/course-projects/${name}.jpg`), name);
+    assert.ok((await stat(resolve(output, "images", "course-projects", `${name}.jpg`))).size > 10000, name);
+  }
+  assert.match(html, /These screenshots show the team projects/);
 });
