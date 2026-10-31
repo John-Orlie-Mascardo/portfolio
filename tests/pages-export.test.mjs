@@ -10,6 +10,8 @@ test("Pages artifact contains the current portfolio and working subpath assets",
   const html = await readFile(resolve(output, "index.html"), "utf8");
   assert.match(html, /Aspiring QA/);
   assert.equal([...html.matchAll(/aria-haspopup="dialog"/g)].length, 24);
+  assert.doesNotMatch(html, /Zoom in|Fit image|aria-pressed="false"/);
+  assert.equal([...html.matchAll(/class="viewer-close"/g)].length, 24);
   assert.doesNotMatch(html, /\/_next\/image\?/);
   const urls = new Set(
     [...html.matchAll(/(?:src|href)="([^"<>]+)"/g)].map((match) =>

@@ -4,8 +4,6 @@ const dialogs = document.querySelectorAll('.media-dialog');
 for (const dialog of dialogs) {
   const trigger = dialog.previousElementSibling;
   const closeButton = dialog.querySelector('.viewer-close');
-  const zoomButton = dialog.querySelector('.viewer-actions button');
-  const image = dialog.querySelector('.viewer-image');
 
   trigger.addEventListener('click', () => dialog.showModal());
   closeButton.addEventListener('click', () => dialog.close());
@@ -13,15 +11,7 @@ for (const dialog of dialogs) {
     if (event.target === dialog) dialog.close();
   });
   dialog.addEventListener('close', () => {
-    image.classList.remove('is-zoomed');
-    zoomButton.setAttribute('aria-pressed', 'false');
-    zoomButton.textContent = 'Zoom in';
     trigger.focus({ preventScroll: true });
-  });
-  zoomButton.addEventListener('click', () => {
-    const zoomed = image.classList.toggle('is-zoomed');
-    zoomButton.setAttribute('aria-pressed', String(zoomed));
-    zoomButton.textContent = zoomed ? 'Fit image' : 'Zoom in';
   });
 }
 

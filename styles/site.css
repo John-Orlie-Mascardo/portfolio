@@ -501,15 +501,9 @@
   .viewer-image img {
     @apply w-auto max-w-full h-auto max-h-[calc(100dvh-210px)] m-auto object-contain;
   }
-  .viewer-image.is-zoomed img {
-    @apply max-w-none max-h-none m-0;
-  }
   .viewer-actions {
     @apply flex items-center justify-between flex-wrap gap-3 px-5 py-[14px] border-t border-line shrink-0;
     border-top-style: solid;
-  }
-  .viewer-actions button {
-    @apply cursor-pointer;
   }
   .hero-stage {
     @apply relative isolate overflow-hidden bg-background;
