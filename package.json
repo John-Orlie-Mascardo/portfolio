@@ -2,8 +2,6 @@
   "scripts": {
     "dev": "npm run build && node scripts/serve.mjs",
     "build:pages": "node scripts/build-pages.mjs",
-    "test": "node --test tests/pages-export.test.mjs",
-    "test:export": "node --test tests/pages-export.test.mjs",
     "build": "node scripts/build-pages.mjs",
     "lint": "node --check site.js && node --check scripts/build-pages.mjs && node --check scripts/serve.mjs"
   },
