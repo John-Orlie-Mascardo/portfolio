@@ -266,7 +266,7 @@
     @apply text-[24px] font-normal;
   }
   .about-copy {
-    @apply text-[15px] text-muted;
+    @apply text-base text-muted;
   }
   .about-copy .lead {
     @apply text-[18px] leading-[1.7] text-foreground;
@@ -285,14 +285,8 @@
   .project-intro {
     @apply flex gap-[60px] justify-between items-end mb-9;
   }
-  .project-intro h3 {
-    @apply font-display text-[64px] leading-none my-[18px];
-  }
-  .project-intro h3 > span {
-    @apply text-accent;
-  }
   .project-intro p {
-    @apply max-w-[650px] text-muted text-[15px];
+    @apply max-w-[650px] text-muted text-base;
   }
   .project-tags > span {
     @apply border border-[#4a5163] rounded-[20px] px-3 py-[5px] text-[14px];
@@ -329,17 +323,26 @@
     @apply text-[13px] font-semibold tracking-[.03em];
   }
   .gallery-item figcaption > span {
-    @apply text-[13px] text-muted;
+    @apply text-[14px] text-muted;
   }
   .project-details {
     @apply mt-[54px] pt-[34px] border-t border-[#3f4655];
     border-top-style: solid;
   }
+  .project-objectives summary {
+    @apply cursor-pointer py-2 font-semibold text-accent;
+  }
+  .project-objectives[open] summary {
+    @apply mb-2;
+  }
+  .project-objectives ol {
+    @apply my-4;
+  }
   .project-details .eyebrow {
     @apply mb-[14px] text-accent;
   }
   .feature-list {
-    @apply m-0 pl-[18px] text-muted text-[15px] leading-[1.9];
+    @apply m-0 pl-[18px] text-muted text-base leading-[1.65];
   }
   .feature-list li {
     @apply pl-[6px] mb-[5px];
@@ -365,7 +368,7 @@
     border-bottom-style: solid;
   }
   .workflow-note {
-    @apply text-[15px] text-muted max-w-[410px] mt-7;
+    @apply text-base text-muted max-w-[410px] mt-7;
   }
   .process-list {
     @apply p-0 m-0 list-none;
@@ -387,10 +390,10 @@
     @apply text-[18px] mb-[10px];
   }
   .process-list p {
-    @apply text-[15px] text-muted;
+    @apply text-base text-muted;
   }
   .section-description {
-    @apply text-[15px] text-muted max-w-[540px] -mt-[14px] mb-10;
+    @apply text-base text-muted max-w-[540px] -mt-[14px] mb-10;
   }
   .skill-card {
     @apply p-[30px] bg-[#1d202b] border border-[#3a4050];
@@ -400,7 +403,7 @@
     @apply mt-4 text-[21px];
   }
   .skill-card > p {
-    @apply text-muted text-[14px] mt-2;
+    @apply text-muted text-base mt-2;
   }
   .skill-chips {
     @apply p-0 mt-6 mb-0 mx-0 list-none flex gap-2 flex-wrap;
@@ -419,7 +422,7 @@
     font-size: clamp(3rem, 6.8vw, 6rem);
   }
   .contact > p:not(.eyebrow) {
-    @apply text-muted text-[14px] mt-[26px];
+    @apply text-muted text-base mt-[26px];
   }
   .site-footer {
     @apply border-t border-line pt-7 pb-[35px] text-[10px] text-muted;
@@ -458,10 +461,10 @@
     @apply mt-[10px] text-[21px];
   }
   .certificate-card-info p {
-    @apply mt-[10px] text-muted text-[14px];
+    @apply mt-[10px] text-muted text-base;
   }
   .certificate-card-meta {
-    @apply flex flex-wrap gap-x-6 gap-y-[10px] mt-5 text-muted text-[13px];
+    @apply flex flex-wrap gap-x-6 gap-y-[10px] mt-5 text-muted text-[14px];
   }
   html:has(.media-dialog[open]) {
     overflow: hidden;
@@ -500,10 +503,6 @@
   }
   .viewer-image img {
     @apply w-auto max-w-full h-auto max-h-[calc(100dvh-210px)] m-auto object-contain;
-  }
-  .viewer-actions {
-    @apply flex items-center justify-between flex-wrap gap-3 px-5 py-[14px] border-t border-line shrink-0;
-    border-top-style: solid;
   }
   .hero-stage {
     @apply relative isolate overflow-hidden bg-background;
@@ -634,9 +633,6 @@
     .project-intro {
       @apply block mb-7;
     }
-    .project-intro h3 {
-      @apply text-[56px];
-    }
     .project-link-block {
       @apply mt-6 items-start;
     }
@@ -682,12 +678,6 @@
     }
     .viewer-image {
       @apply p-2;
-    }
-    .viewer-actions {
-      @apply p-3 gap-2;
-    }
-    .viewer-actions .button {
-      @apply p-3 gap-3 text-[13px] min-h-11;
     }
     .halo-background::after {
       background: linear-gradient(180deg, #14141e8c, #14141eb8 55%, #14141e40);
@@ -783,7 +773,7 @@
   max-width: 380px;
   margin-top: 6px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.65;
 }
 .sidebar-nav {
@@ -794,12 +784,12 @@
   margin-top: 18px;
 }
 .sidebar-nav a {
-  min-height: 28px;
+  min-height: 32px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -874,8 +864,8 @@
 .portfolio-content .section {
   padding-block: 70px;
 }
-.portfolio-content .section h2 {
-  font-size: clamp(2.8rem, 4.5vw, 4rem);
+.portfolio-content .section-title {
+  font-size: clamp(2.5rem, 4vw, 3.25rem);
 }
 .portfolio-content .about,
 .portfolio-content .workflow {
@@ -936,7 +926,8 @@
   .site-header .sidebar-nav a {
     justify-content: flex-start;
     padding-inline: 0;
-    font-size: 11px;
+    font-size: 0.8125rem;
+    min-height: 40px;
     letter-spacing: 0.04em;
   }
   .sidebar-bottom {
@@ -971,8 +962,8 @@
   .sidebar-nav a::before {
     width: 10px;
   }
-  .portfolio-content .section h2 {
-    font-size: clamp(2.6rem, 11vw, 3.5rem);
+  .portfolio-content .section-title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
   }
   .portrait-section .portrait-composition {
     width: min(296px, calc(80% + 46px));
@@ -1010,5 +1001,5 @@
 .course-evidence-item figcaption {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 0.875rem;
 }

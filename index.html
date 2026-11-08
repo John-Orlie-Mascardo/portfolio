@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="__BASE__/site.css">
   <script src="__BASE__/site.js" defer></script>
 </head>
-<body>
+<body id="home">
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="halo-background portfolio-halo" aria-hidden="true"><div id="particles-js" class="halo-canvas"></div></div>
 <div class="portfolio-layout">
@@ -40,10 +40,13 @@
 </header>
 <div class="portfolio-content">
 <main id="main">
-<section class="portrait-section" id="home" aria-label="Portrait of John Orlie Mascardo">
+<section class="portrait-section" aria-label="Portrait of John Orlie Mascardo">
 <div class="portrait-composition">
 <div class="portrait-frame">
-<img alt="John Orlie Mascardo smiling in a collared shirt" width="2730" height="4096" decoding="async" class="portrait" src="__BASE__/images/john-orlie.jpg"/>
+<img alt="John Orlie Mascardo smiling in a collared shirt" width="800" height="1200" decoding="async" class="portrait"
+     src="__BASE__/images/john-orlie-400.webp"
+     srcset="__BASE__/images/john-orlie-400.webp 400w, __BASE__/images/john-orlie-800.webp 800w"
+     sizes="(max-width: 540px) 286px, 366px"/>
 </div>
 <span class="portrait-index" aria-hidden="true">01 / THE PERSON BEHIND THE WORK</span>
 <div class="portrait-note">
@@ -58,7 +61,7 @@
 <div>
 <p class="eyebrow">
 <span>01</span> A little about me</p>
-<h2 id="about-title">A curious mind.<br/>
+<h2 class="section-title" id="about-title">A curious mind.<br/>
 <span>A testing mindset.</span>
 </h2>
 </div>
@@ -77,9 +80,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>02</span> Featured capstone</p>
-<h2>Real project.<br/>
-<span>Hands-on learning.</span>
-</h2>
+<h2 class="section-title" id="project-title">LitterSense</h2>
 </div>
 <div class="project-intro">
 <div>
@@ -87,61 +88,14 @@
 <span>IoT + Web application</span>
 <span class="development-status">In progress · IT expert evaluation</span>
 </div>
-<h3 id="project-title">LitterSense<span>.</span>
-</h3>
-<p>A connected litter-box monitoring system that helps cat owners follow activity, odor, and behavior from a web dashboard.</p>
-</div>
-<div class="project-link-block">
-<a class="button button-outline" href="https://litter-sense-csp-web-app.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span>
-</a>
-<span>Opens the live app · Sign-in required</span>
+<p class="mt-4">Cat owners can miss changes in litter-box habits between visits. LitterSense uses a tagged collar and sensors to record visits and flag unusual activity on a web dashboard.</p>
+<p>I built the hardware, helped connect it to the dashboard, and reported and retested bugs with my team. We tested the assembled prototype with cats. The gallery shows the enclosure in use and the dashboard we built.</p>
 </div>
 </div>
-<div class="project-gallery grid grid-cols-2 gap-x-6 gap-y-[30px] [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-[26px]">
-<figure class="gallery-item">
-<button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Monitoring dashboard">
-<img alt="LitterSense dashboard with behavior status and odor-monitoring panels in an empty-data state" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-dashboard.png"/>
-
-</button>
-<dialog class="media-dialog" aria-labelledby="preview-title-1">
-<div class="viewer-panel">
-<div class="viewer-header">
-<h2 id="preview-title-1">Monitoring dashboard</h2>
-<button type="button" class="viewer-close">Close <span aria-hidden="true">×</span>
-</button>
-</div>
-<div class="viewer-image">
-<img alt="LitterSense dashboard with behavior status and odor-monitoring panels in an empty-data state" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-dashboard.png"/>
-</div>
-</div>
-</dialog>
-<figcaption>
-<strong>01 / Monitoring dashboard</strong>
-<span>Behavior and odor overview, shown before session data arrives.</span>
-</figcaption>
-</figure>
-<figure class="gallery-item hardware-photo">
-<button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Hardware prototype">
-<img alt="Cat inside the assembled LitterSense prototype with mounted sensors" loading="lazy" width="1208" height="805" decoding="async" src="__BASE__/images/littersense-hardware.jpg"/>
-
-</button>
-<dialog class="media-dialog" aria-labelledby="preview-title-2">
-<div class="viewer-panel">
-<div class="viewer-header">
-<h2 id="preview-title-2">Hardware prototype</h2>
-<button type="button" class="viewer-close">Close <span aria-hidden="true">×</span>
-</button>
-</div>
-<div class="viewer-image">
-<img alt="Cat inside the assembled LitterSense prototype with mounted sensors" loading="lazy" width="1208" height="805" decoding="async" src="__BASE__/images/littersense-hardware.jpg"/>
-</div>
-</div>
-</dialog>
-<figcaption>
-<strong>02 / Hardware prototype</strong>
-<span>The assembled prototype during testing with a cat.</span>
-</figcaption>
-</figure>
+<section aria-labelledby="littersense-walkthrough">
+<h3 id="littersense-walkthrough" class="mb-4 text-[22px]">From a cat’s visit to the dashboard</h3>
+<ol class="project-gallery grid grid-cols-2 gap-x-6 gap-y-[30px] [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-[26px] m-0 list-none p-0" role="list">
+<li>
 <figure class="gallery-item">
 <button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Cat registration">
 <img alt="LitterSense cat registration form with profile information and RFID tag association" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-register.png"/>
@@ -160,10 +114,60 @@
 </div>
 </dialog>
 <figcaption>
-<strong>03 / Cat registration</strong>
-<span>Individual cat profiles linked to RFID tags.</span>
+<strong>1. Register the collar tag</strong>
+<span>The owner scans the collar tag while creating a cat profile. Its RFID number connects future visits to that cat.</span>
 </figcaption>
 </figure>
+</li>
+<li>
+<figure class="gallery-item hardware-photo">
+<button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Hardware prototype">
+<img alt="Cat inside the assembled LitterSense prototype with mounted sensors" loading="lazy" width="1208" height="805" decoding="async" src="__BASE__/images/littersense-hardware.jpg"/>
+
+</button>
+<dialog class="media-dialog" aria-labelledby="preview-title-2">
+<div class="viewer-panel">
+<div class="viewer-header">
+<h2 id="preview-title-2">Hardware prototype</h2>
+<button type="button" class="viewer-close">Close <span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="viewer-image">
+<img alt="Cat inside the assembled LitterSense prototype with mounted sensors" loading="lazy" width="1208" height="805" decoding="async" src="__BASE__/images/littersense-hardware.jpg"/>
+</div>
+</div>
+</dialog>
+<figcaption>
+<strong>2. Record the visit</strong>
+<span>Inside the enclosure, the reader looks for the collar tag and the ultrasonic sensor detects the cat’s presence. The device sends session data to the web app through Firebase.</span>
+</figcaption>
+</figure>
+</li>
+<li>
+<figure class="gallery-item">
+<button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Monitoring dashboard">
+<img alt="LitterSense dashboard with behavior status and odor-monitoring panels in an empty-data state" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-dashboard.png"/>
+
+</button>
+<dialog class="media-dialog" aria-labelledby="preview-title-1">
+<div class="viewer-panel">
+<div class="viewer-header">
+<h2 id="preview-title-1">Monitoring dashboard</h2>
+<button type="button" class="viewer-close">Close <span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="viewer-image">
+<img alt="LitterSense dashboard with behavior status and odor-monitoring panels in an empty-data state" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-dashboard.png"/>
+</div>
+</div>
+</dialog>
+<figcaption>
+<strong>3. Check the dashboard</strong>
+<span>Recorded visits feed the cat’s visit count, average duration, and behavior trend. This screenshot shows the dashboard waiting for its first visit.</span>
+</figcaption>
+</figure>
+</li>
+<li>
 <figure class="gallery-item">
 <button type="button" class="media-trigger gallery-image" aria-haspopup="dialog" aria-label="View Activity reports">
 <img alt="LitterSense report generation page with pet and date-range selectors" loading="lazy" width="1920" height="1080" decoding="async" src="__BASE__/images/littersense-reports.png"/>
@@ -182,11 +186,18 @@
 </div>
 </dialog>
 <figcaption>
-<strong>04 / Activity reports</strong>
-<span>Report controls for selecting cats and a date range.</span>
+<strong>4. Review activity over time</strong>
+<span>The owner chooses a cat and a date range to summarize its visits. This screen shows the report form before a report has been generated.</span>
 </figcaption>
 </figure>
+</li>
+</ol>
+<div class="project-link-block">
+<a class="button button-outline" href="https://litter-sense-csp-web-app.vercel.app/" target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span>
+</a>
+<span>Opens the live app · Sign-in required</span>
 </div>
+</section>
 <div class="project-details grid grid-cols-2 gap-[70px] [@media(max-width:1050px)]:gap-[30px] [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-7">
 <div>
 <p class="eyebrow">What the system does</p>
@@ -198,18 +209,17 @@
 </ul>
 </div>
 <div>
-<p class="eyebrow">My contribution</p>
+<p class="eyebrow">How I tested the system</p>
 <ul class="feature-list">
-<li>Manual feature checks, bug reporting, and retesting fixes.</li>
-<li>Completed the hardware prototype, assembled from components.</li>
-<li>Contributed to frontend, backend, and hardware-to-web integration through implementation review, testing, and troubleshooting.</li>
-<li>Reviewing generated results and testing actual behavior.</li>
+<li>I tried features on the prototype and compared what happened with what we expected.</li>
+<li>I shared problems with teammates and tried the same features again after fixes.</li>
+<li>I helped troubleshoot the connection between the hardware and web app, including changes to the frontend and backend.</li>
 </ul>
 </div>
 </div>
 <div class="project-details grid grid-cols-2 gap-[70px] [@media(max-width:1050px)]:gap-[30px] [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-7">
-<div>
-<h3 class="eyebrow">Project objectives</h3>
+<details class="project-objectives">
+<summary>Academic project objectives</summary>
 <p>Design, develop, and evaluate an IoT-enabled feline health monitoring system for Filipino cat owners, combining camera-equipped ESP32 hardware, multiple sensors, and a React-based Progressive Web Application (PWA).</p>
 <ol class="feature-list">
 <li>Analyze household monitoring practices and the clinical, infrastructure, and technology limitations of manual observation and global commercial platforms.</li>
@@ -217,8 +227,7 @@
 <li>Evaluate sensor accuracy and reliability, RFID identification, anomaly thresholds, and PWA functionality under simulated Philippine network conditions.</li>
 <li>Deploy the prototype in a real household and evaluate individual cats’ elimination patterns, report usability, and reliability under Philippine infrastructure constraints.</li>
 </ol>
-<p>These are the study’s objectives; formal evaluation is ongoing.</p>
-</div>
+</details>
 <div>
 <h3 class="eyebrow">Technologies &amp; components</h3>
 <ul class="skill-chips">
@@ -256,7 +265,7 @@
 <span class="status-dot">
 </span>
 <p>
-<strong>The hardware prototype is complete and has been tested with cats.</strong> Formal evaluation results are still pending.</p>
+<strong>Formal evaluation results are pending.</strong></p>
 <span class="small-label">TEAM CAPSTONE</span>
 </div>
 </div>
@@ -265,7 +274,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>03</span> Course projects</p>
-<h2 id="course-projects-title">Building skills.<br/>
+<h2 class="section-title" id="course-projects-title">Building skills.<br/>
 <span>One project at a time.</span>
 </h2>
 </div>
@@ -370,7 +379,7 @@
 <section class="section shell workflow grid grid-cols-2 gap-[100px] [@media(max-width:1050px)]:gap-[45px] [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-8" id="workflow" aria-labelledby="workflow-title">
 <div>
 <p class="eyebrow">How I work</p>
-<h2 id="workflow-title">Small checks.<br/>
+<h2 class="section-title" id="workflow-title">Small checks.<br/>
 <span>Better results.</span>
 </h2>
 <p class="workflow-note">I used ClickUp and Gmail to share Monday, Wednesday, and Friday team updates during our third-year second semester: completed work, next steps, and blockers.</p>
@@ -403,7 +412,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>04</span> Skills &amp; tools</p>
-<h2 id="skills-title">A growing<br/>
+<h2 class="section-title" id="skills-title">A growing<br/>
 <span>toolkit.</span>
 </h2>
 </div>
@@ -478,7 +487,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>05</span> Learning milestones</p>
-<h2 id="certificates-title">Keeping the<br/>
+<h2 class="section-title" id="certificates-title">Keeping the<br/>
 <span>learning going.</span>
 </h2>
 </div>
@@ -499,19 +508,15 @@
 <div class="viewer-image">
 <img alt="HTML and CSS certificate awarded to John Orlie Mascardo" loading="lazy" width="1400" height="1082" decoding="async" src="__BASE__/certificates/html-css.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/html-css.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
 <span class="small-label">IT Specialist</span>
 <h3>HTML and CSS</h3>
+<p>Issued by Certiport, a Pearson VUE business.</p>
 <p>Valid through February 4, 2031</p>
 <div class="certificate-card-meta">
-<span>February 2026</span>
+<span>February 4, 2026</span>
 <span>Development</span>
 </div>
 </div>
@@ -530,11 +535,6 @@
 </div>
 <div class="viewer-image">
 <img alt="Introduction to IoT and Digital Transformation certificate awarded to John Orlie Mascardo" loading="lazy" width="1400" height="949" decoding="async" src="__BASE__/certificates/introduction-iot.webp"/>
-</div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/introduction-iot.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
 </div>
 </div>
 </dialog>
@@ -563,11 +563,6 @@
 <div class="viewer-image">
 <img alt="Getting Started with Cisco Packet Tracer certificate awarded to John Orlie Mascardo" loading="lazy" width="1400" height="949" decoding="async" src="__BASE__/certificates/packet-tracer.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/packet-tracer.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -594,11 +589,6 @@
 </div>
 <div class="viewer-image">
 <img alt="PowerPoint 2019 Associate certificate awarded to John Orlie Mascardo" loading="lazy" width="1400" height="1082" decoding="async" src="__BASE__/certificates/powerpoint-associate.webp"/>
-</div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/powerpoint-associate.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
 </div>
 </div>
 </dialog>
@@ -627,11 +617,6 @@
 <div class="viewer-image">
 <img alt="Word 2019 Associate certificate awarded to John Orlie Mascardo" loading="lazy" width="1400" height="1082" decoding="async" src="__BASE__/certificates/word-associate.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/word-associate.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -651,7 +636,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>06</span> Achievements &amp; recognition</p>
-<h2 id="achievements-title">Progress beyond<br/>
+<h2 class="section-title" id="achievements-title">Progress beyond<br/>
 <span>the classroom.</span>
 </h2>
 </div>
@@ -659,7 +644,7 @@
 <div class="certificate-list grid grid-cols-2 gap-7 [@media(max-width:760px)]:grid-cols-1 [@media(max-width:760px)]:gap-6">
 <article class="certificate-card">
 <button type="button" class="media-trigger certificate-preview" aria-haspopup="dialog" aria-label="View Dean’s List — Second Semester">
-<img alt="Dean’s List certificate for John Orlie Mascardo, second semester of academic year 2024–2025, grade average 91.89" loading="lazy" width="2970" height="2290" decoding="async" src="__BASE__/achievements/deans-list-2024-2025.jpg"/>
+<img alt="Dean’s List certificate for John Orlie Mascardo, second semester of academic year 2024–2025, High Grade Point Average of 91.89" loading="lazy" width="640" height="493" decoding="async" src="__BASE__/achievements/deans-list-2024-2025-thumb.webp"/>
 
 </button>
 <dialog class="media-dialog" aria-labelledby="preview-title-10">
@@ -670,7 +655,7 @@
 </button>
 </div>
 <div class="viewer-image">
-<img alt="Dean’s List certificate for John Orlie Mascardo, second semester of academic year 2024–2025, grade average 91.89" loading="lazy" width="2970" height="2290" decoding="async" src="__BASE__/achievements/deans-list-2024-2025.jpg"/>
+<img alt="Dean’s List certificate for John Orlie Mascardo, second semester of academic year 2024–2025, High Grade Point Average of 91.89" loading="lazy" width="1800" height="1388" decoding="async" src="__BASE__/achievements/deans-list-2024-2025-detail.webp"/>
 </div>
 </div>
 </dialog>
@@ -678,7 +663,7 @@
 <span class="small-label">Academic recognition</span>
 <h3>Dean’s List — Second Semester</h3>
 <p>St. Dominic College of Asia</p>
-<p>Recognized for a grade point average of 91.89. Awarded April 27, 2026.</p>
+<p>High Grade Point Average of 91.89. Awarded April 27, 2026.</p>
 <div class="certificate-card-meta">
 <span>Academic year 2024–2025</span>
 </div>
@@ -686,7 +671,7 @@
 </article>
 <article class="certificate-card">
 <button type="button" class="media-trigger certificate-preview" aria-haspopup="dialog" aria-label="View Dean’s List — First Semester">
-<img alt="Dean’s List certificate for John Orlie Mascardo, first semester of academic year 2025–2026, grade average 94.49" loading="lazy" width="2984" height="2320" decoding="async" src="__BASE__/achievements/deans-list-2025-2026.jpg"/>
+<img alt="Dean’s List certificate for John Orlie Mascardo, first semester of academic year 2025–2026, High Grade Point Average of 94.49" loading="lazy" width="640" height="498" decoding="async" src="__BASE__/achievements/deans-list-2025-2026-thumb.webp"/>
 
 </button>
 <dialog class="media-dialog" aria-labelledby="preview-title-11">
@@ -697,7 +682,7 @@
 </button>
 </div>
 <div class="viewer-image">
-<img alt="Dean’s List certificate for John Orlie Mascardo, first semester of academic year 2025–2026, grade average 94.49" loading="lazy" width="2984" height="2320" decoding="async" src="__BASE__/achievements/deans-list-2025-2026.jpg"/>
+<img alt="Dean’s List certificate for John Orlie Mascardo, first semester of academic year 2025–2026, High Grade Point Average of 94.49" loading="lazy" width="1800" height="1399" decoding="async" src="__BASE__/achievements/deans-list-2025-2026-detail.webp"/>
 </div>
 </div>
 </dialog>
@@ -705,7 +690,7 @@
 <span class="small-label">Academic recognition</span>
 <h3>Dean’s List — First Semester</h3>
 <p>St. Dominic College of Asia</p>
-<p>Recognized for a grade point average of 94.49. Awarded April 27, 2026.</p>
+<p>High Grade Point Average of 94.49. Awarded April 27, 2026.</p>
 <div class="certificate-card-meta">
 <span>Academic year 2025–2026</span>
 </div>
@@ -713,7 +698,7 @@
 </article>
 <article class="certificate-card">
 <button type="button" class="media-trigger certificate-preview" aria-haspopup="dialog" aria-label="View TOEIC Listening &amp; Reading">
-<img alt="TOEIC institutional Listening and Reading score report for John Orlie Mascardo, total score 795" loading="lazy" width="1434" height="1890" decoding="async" src="__BASE__/achievements/toeic-score-report.jpg"/>
+<img alt="TOEIC institutional Listening and Reading score report for John Orlie Mascardo, total score 795" loading="lazy" width="640" height="844" decoding="async" src="__BASE__/achievements/toeic-score-report-thumb.webp"/>
 
 </button>
 <dialog class="media-dialog" aria-labelledby="preview-title-12">
@@ -724,7 +709,7 @@
 </button>
 </div>
 <div class="viewer-image">
-<img alt="TOEIC institutional Listening and Reading score report for John Orlie Mascardo, total score 795" loading="lazy" width="1434" height="1890" decoding="async" src="__BASE__/achievements/toeic-score-report.jpg"/>
+<img alt="TOEIC institutional Listening and Reading score report for John Orlie Mascardo, total score 795" loading="lazy" width="1434" height="1890" decoding="async" src="__BASE__/achievements/toeic-score-report-detail.webp"/>
 </div>
 </div>
 </dialog>
@@ -769,7 +754,7 @@
 </article>
 <article class="certificate-card">
 <button type="button" class="media-trigger certificate-preview" aria-haspopup="dialog" aria-label="View IT Quiz Bee — Second Runner-up">
-<img alt="Certificate of Excellence awarded to BSIT 3A for second runner-up in the IT Quiz Bee during BSIT Week 2026" loading="lazy" width="2948" height="2088" decoding="async" src="__BASE__/achievements/it-quiz-bee-2026.jpg"/>
+<img alt="Certificate of Excellence awarded to BSIT 3A for second runner-up in the IT Quiz Bee during BSIT Week 2026" loading="lazy" width="640" height="453" decoding="async" src="__BASE__/achievements/it-quiz-bee-2026-thumb.webp"/>
 
 </button>
 <dialog class="media-dialog" aria-labelledby="preview-title-14">
@@ -780,7 +765,7 @@
 </button>
 </div>
 <div class="viewer-image">
-<img alt="Certificate of Excellence awarded to BSIT 3A for second runner-up in the IT Quiz Bee during BSIT Week 2026" loading="lazy" width="2948" height="2088" decoding="async" src="__BASE__/achievements/it-quiz-bee-2026.jpg"/>
+<img alt="Certificate of Excellence awarded to BSIT 3A for second runner-up in the IT Quiz Bee during BSIT Week 2026" loading="lazy" width="1800" height="1275" decoding="async" src="__BASE__/achievements/it-quiz-bee-2026-detail.webp"/>
 </div>
 </div>
 </dialog>
@@ -800,7 +785,7 @@
 <div class="section-heading">
 <p class="eyebrow">
 <span>07</span> Seminars &amp; training</p>
-<h2 id="seminars-title">Learning from<br/>
+<h2 class="section-title" id="seminars-title">Learning from<br/>
 <span>new perspectives.</span>
 </h2>
 </div>
@@ -820,11 +805,6 @@
 </div>
 <div class="viewer-image">
 <img alt="Attendance certificate for John Orlie Mascardo: Helping Hands, Healing Minds: Psychological First Aid for Every Student" loading="lazy" width="1400" height="788" decoding="async" src="__BASE__/certificates/psychological-first-aid.webp"/>
-</div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/psychological-first-aid.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
 </div>
 </div>
 </dialog>
@@ -852,11 +832,6 @@
 <div class="viewer-image">
 <img alt="Attendance certificate for John Orlie Mascardo: 5th SDCA International Multidisciplinary Research Conference" loading="lazy" width="1400" height="1050" decoding="async" src="__BASE__/certificates/sdca-imrc-2025.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/sdca-imrc-2025.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -882,11 +857,6 @@
 </div>
 <div class="viewer-image">
 <img alt="Attendance certificate for John Orlie Mascardo: Global Classroom Sessions: Global Trends and Practices — Day 3" loading="lazy" width="1400" height="989" decoding="async" src="__BASE__/certificates/global-classroom-day-3.webp"/>
-</div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/global-classroom-day-3.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
 </div>
 </div>
 </dialog>
@@ -914,11 +884,6 @@
 <div class="viewer-image">
 <img alt="Attendance certificate for John Orlie Mascardo: 4th SDCA International Multidisciplinary Research Conference — Day 1, Morning Session" loading="lazy" width="1400" height="1050" decoding="async" src="__BASE__/certificates/sdca-imrc-2024.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/sdca-imrc-2024.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -945,11 +910,6 @@
 <div class="viewer-image">
 <img alt="Attendance certificate for John Orlie Mascardo: Global Classroom Sessions: Global Trends and Practices — Day 1" loading="lazy" width="1400" height="989" decoding="async" src="__BASE__/certificates/global-classroom-day-1.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/global-classroom-day-1.pdf" download="">Download PDF <span aria-hidden="true">↓</span>
-</a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -974,10 +934,6 @@
 <div class="viewer-image">
 <img alt="Pandayan certificate of completion awarded to John Orlie Mascardo for servant leadership and project management training" loading="lazy" width="1400" height="1082" decoding="async" src="__BASE__/certificates/pandayan-leadership.webp"/>
 </div>
-<div class="viewer-actions">
-
-<a class="button primary" href="__BASE__/certificates/pandayan-leadership.pdf" download="">Download PDF <span aria-hidden="true">↓</span></a>
-</div>
 </div>
 </dialog>
 <div class="certificate-card-info">
@@ -991,7 +947,7 @@
 <section class="section shell contact" id="contact" aria-labelledby="contact-title">
 <p class="eyebrow">
 <span>08</span> Let’s connect</p>
-<h2 id="contact-title">Good work starts<br/>with a <span>conversation.</span>
+<h2 class="section-title" id="contact-title">Good work starts<br/>with a <span>conversation.</span>
 </h2>
 <p>I’m building my skills and exploring a future in QA.<br/>Connect with me or take a closer look at my work.</p>
 <div class="contact-links flex justify-center gap-4 mt-[34px] [@media(max-width:760px)]:flex-col [@media(max-width:760px)]:items-stretch">
