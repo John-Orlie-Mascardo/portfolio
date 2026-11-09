@@ -1003,3 +1003,117 @@
   color: var(--muted);
   font-size: 0.875rem;
 }
+
+.portfolio-content :is(#certificates, #achievements, #seminars).section {
+  padding-block: 50px;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .section-heading {
+  margin-bottom: 18px;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .section-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  line-height: 1.08;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .section-description {
+  max-width: 660px;
+  margin: 0 0 22px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
+  min-height: 82px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-preview {
+  grid-column: 1;
+  grid-row: 1;
+  width: 54px;
+  height: 54px;
+  aspect-ratio: 1;
+  overflow: visible;
+  border: 1px solid #91b8ff66;
+  border-radius: 50%;
+  background: #222734;
+  cursor: pointer;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-preview img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-preview::after {
+  content: "↗";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: grid;
+  width: 21px;
+  height: 21px;
+  place-items: center;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-info {
+  min-width: 0;
+  padding: 12px 0;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-info .small-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-info h3 {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.35;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-info p {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-meta {
+  gap: 4px 14px;
+  margin-top: 6px;
+  font-size: 12px;
+}
+.portfolio-content :is(#certificates, #achievements, #seminars) .certificate-preview:hover::after {
+  transform: translate(1px, -1px);
+}
+
+@media (max-width: 540px) {
+  .portfolio-content :is(#certificates, #achievements, #seminars).section {
+    padding-block: 42px;
+  }
+  .portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card {
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 12px;
+    min-height: 74px;
+  }
+  .portfolio-content :is(#certificates, #achievements, #seminars) .certificate-preview {
+    width: 48px;
+    height: 48px;
+  }
+  .portfolio-content :is(#certificates, #achievements, #seminars) .certificate-card-info h3 {
+    font-size: 15px;
+  }
+}
