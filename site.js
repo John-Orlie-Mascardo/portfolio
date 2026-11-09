@@ -2,22 +2,27 @@ const basePath = new URL(document.currentScript.src).pathname.replace(/\/site\.j
 const dialogs = document.querySelectorAll('.media-dialog');
 
 for (const dialog of dialogs) {
-  const trigger = dialog.previousElementSibling;
+  const trigger = dialog.closest('figure')?.querySelector('.media-trigger');
   const closeButton = dialog.querySelector('.viewer-close');
 
-  trigger.addEventListener('click', () => dialog.showModal());
-  closeButton.addEventListener('click', () => dialog.close());
+  if (trigger && typeof dialog.showModal === 'function') {
+    trigger.addEventListener('click', () => dialog.showModal());
+    dialog.addEventListener('close', () => {
+      if (trigger.isConnected) trigger.focus({ preventScroll: true });
+    });
+  }
+  if (closeButton && typeof dialog.close === 'function') {
+    closeButton.addEventListener('click', () => dialog.close());
+  }
   dialog.addEventListener('click', (event) => {
-    if (event.target === dialog) dialog.close();
-  });
-  dialog.addEventListener('close', () => {
-    trigger.focus({ preventScroll: true });
+    if (event.target === dialog && typeof dialog.close === 'function') dialog.close();
   });
 }
 
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const host = document.querySelector('#particles-js');
 let loadPromise;
+let initializing = false;
 
 function loadScript(src) {
   return new Promise((resolve, reject) => {
@@ -37,7 +42,9 @@ async function updateParticles() {
     }
     return;
   }
+  if (initializing) return;
 
+  initializing = true;
   try {
     loadPromise ??= Promise.all([
       loadScript(`${basePath}/vendor/particles.2.0.0.min.js`),
@@ -53,6 +60,8 @@ async function updateParticles() {
     window.particlesJS(host.id, config);
   } catch (error) {
     console.warn('Animated background unavailable:', error);
+  } finally {
+    initializing = false;
   }
 }
 
