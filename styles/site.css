@@ -739,7 +739,7 @@
   max-height: none;
 }
 .portfolio-halo::after {
-  background: linear-gradient(90deg, #14141ebf, #14141e88 55%, #14141ebf);
+  background: none;
 }
 .portfolio-sidebar .wordmark {
   width: fit-content;
