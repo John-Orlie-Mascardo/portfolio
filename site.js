@@ -67,3 +67,44 @@ async function updateParticles() {
 
 motion.addEventListener('change', updateParticles);
 updateParticles();
+
+const contactForm = document.querySelector('#contact-form');
+
+if (contactForm) {
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const status = document.querySelector('#contact-form-status');
+  const originalButtonText = submitButton.textContent;
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+    status.setAttribute('role', 'status');
+    status.dataset.state = 'sending';
+    status.textContent = 'Sending your message…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || result?.body?.message || 'Your message could not be sent. Please try again.');
+      }
+
+      contactForm.reset();
+      status.setAttribute('role', 'status');
+      status.dataset.state = 'success';
+      status.textContent = 'Thanks — your message has been sent.';
+    } catch (error) {
+      status.setAttribute('role', 'alert');
+      status.dataset.state = 'error';
+      status.textContent = error.message || 'Something went wrong. Please try again.';
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
