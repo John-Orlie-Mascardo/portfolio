@@ -450,7 +450,9 @@
   }
   .form-field textarea {
     min-height: 150px;
+    max-height: 320px;
     resize: vertical;
+    overflow-y: auto;
   }
   .form-field :is(input, textarea):focus-visible {
     outline: 2px solid var(--blue);

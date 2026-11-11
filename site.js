@@ -77,6 +77,15 @@ if (contactForm) {
 
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+
+    const captchaToken = contactForm.querySelector('textarea[name="h-captcha-response"]')?.value.trim();
+    if (!captchaToken) {
+      status.setAttribute('role', 'alert');
+      status.dataset.state = 'error';
+      status.textContent = 'Please complete the security check before sending your message.';
+      return;
+    }
+
     submitButton.disabled = true;
     submitButton.textContent = 'Sending…';
     status.setAttribute('role', 'status');
@@ -84,9 +93,11 @@ if (contactForm) {
     status.textContent = 'Sending your message…';
 
     try {
+      const formData = new FormData(contactForm);
+      formData.set('h-captcha-response', captchaToken);
       const response = await fetch(contactForm.action, {
         method: 'POST',
-        body: new FormData(contactForm),
+        body: formData,
       });
       const result = await response.json().catch(() => null);
 
