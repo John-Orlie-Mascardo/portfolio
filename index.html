@@ -410,6 +410,25 @@
 <span class="small-label">01 / COURSEWORK &amp; PROJECTS</span>
 <h3>Manual QA</h3>
 <p>Hands-on testing experience from our LitterSense capstone.</p>
+<button type="button" class="button button-outline qa-sample-trigger" aria-haspopup="dialog" aria-label="View QA sample: account recovery">View QA sample</button>
+<dialog class="media-dialog qa-sample-dialog" aria-labelledby="qa-sample-title">
+<div class="viewer-panel">
+<div class="viewer-header">
+<h2 id="qa-sample-title">Manual QA sample · Account recovery</h2>
+<button type="button" class="viewer-close">Close <span aria-hidden="true">×</span></button>
+</div>
+<div class="qa-sample-content">
+<p><strong>Date:</strong> November 11, 2026 · <strong>Environment:</strong> Windows 11, Google Chrome.</p>
+<ol class="qa-sample-list">
+<li><article class="qa-test-case"><h3>AD-01 · Recover with a new email <span>Passed</span></h3><dl><dt>Precondition</dt><dd>Ownership could be verified through the approved process.</dd><dt>Steps</dt><dd>Open Users, view the user, verify ownership, enter a new email, and request a reset link.</dd><dt>Expected</dt><dd>The user receives a reset link, sets a new password, and can sign in with the new email.</dd><dt>Actual</dt><dd>The link arrived; the user set a new password and signed in with the new email.</dd><dt>Retest</dt><dd>Passed.</dd></dl></article></li>
+<li><article class="qa-test-case"><h3>AD-02 · Recover with the same email <span>Passed</span></h3><dl><dt>Steps</dt><dd>Leave the new email field blank and request a reset link.</dd><dt>Expected</dt><dd>The link arrives, the user can set a new password, and the installed app redirects to sign-in on phone and PC.</dd><dt>Actual</dt><dd>The link arrived, the user set a new password, and the installed app redirected to sign-in on phone and PC.</dd></dl></article></li>
+<li><article class="qa-test-case"><h3>AD-03 · Verification note under 10 characters <span>Passed</span></h3><dl><dt>Steps</dt><dd>Enter a verification note with fewer than 10 characters.</dd><dt>Expected</dt><dd>The reset button stays unavailable until the note meets the minimum length.</dd><dt>Actual</dt><dd>The reset button stayed greyed out and could not be clicked.</dd></dl></article></li>
+<li><article class="qa-test-case"><h3>AD-04 · Open a link after 30 minutes <span>Passed</span></h3><dl><dt>Steps</dt><dd>Wait more than 30 minutes, then open the reset link.</dd><dt>Expected</dt><dd>The expired link is rejected and the password remains unchanged.</dd><dt>Actual</dt><dd>The page reported the link as invalid or expired; the password did not change.</dd></dl></article></li>
+<li><article class="qa-test-case"><h3>AD-05 · Reuse a reset link <span>Passed</span></h3><dl><dt>Steps</dt><dd>After successfully using a reset link, open the same link again.</dd><dt>Expected</dt><dd>The used link is rejected and the password remains unchanged.</dd><dt>Actual</dt><dd>The page reported the link as invalid or expired; the password did not change.</dd></dl></article></li>
+</ol>
+</div>
+</div>
+</dialog>
 </article>
 <article class="skill-card">
 <span class="small-label">02 / COURSEWORK &amp; PROJECTS</span>

@@ -405,6 +405,9 @@
   .skill-card > p {
     @apply text-muted text-base mt-2;
   }
+  .qa-sample-trigger {
+    @apply mt-5;
+  }
   .skill-chips {
     @apply p-0 mt-6 mb-0 mx-0 list-none flex gap-2 flex-wrap;
   }
@@ -503,6 +506,37 @@
   }
   .viewer-image img {
     @apply w-auto max-w-full h-auto max-h-[calc(100dvh-210px)] m-auto object-contain;
+  }
+  .qa-sample-dialog {
+    width: min(980px, calc(100vw - 32px));
+  }
+  .qa-sample-content {
+    @apply min-h-0 overflow-auto p-5;
+  }
+  .qa-sample-content > p + p {
+    @apply mt-2;
+  }
+  .qa-sample-list {
+    @apply grid grid-cols-2 gap-3 list-none m-0 mt-5 p-0;
+  }
+  .qa-test-case {
+    @apply h-full border border-line bg-[#222734] p-4;
+  }
+  .qa-test-case h3 {
+    @apply flex flex-wrap items-center justify-between gap-2 text-base;
+  }
+  .qa-test-case h3 span {
+    @apply rounded border border-[#55764f] bg-[#273629] px-2 py-1 text-xs text-[#b8e2ac];
+  }
+  .qa-test-case dl {
+    @apply grid grid-cols-[96px_minmax(0,1fr)] gap-x-3 gap-y-2 mt-3 text-sm leading-snug;
+  }
+  .qa-test-case dt {
+    @apply text-accent font-semibold;
+    padding-right: 8px;
+  }
+  .qa-test-case dd {
+    @apply m-0 text-muted;
   }
   .hero-stage {
     @apply relative isolate overflow-hidden bg-background;
@@ -678,6 +712,15 @@
     }
     .viewer-image {
       @apply p-2;
+    }
+    .qa-sample-content {
+      @apply p-3;
+    }
+    .qa-sample-list {
+      @apply grid-cols-1;
+    }
+    .qa-test-case {
+      @apply p-3;
     }
     .halo-background::after {
       background: linear-gradient(180deg, #14141e8c, #14141eb8 55%, #14141e40);

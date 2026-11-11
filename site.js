@@ -2,7 +2,7 @@ const basePath = new URL(document.currentScript.src).pathname.replace(/\/site\.j
 const dialogs = document.querySelectorAll('.media-dialog');
 
 for (const dialog of dialogs) {
-  const trigger = dialog.closest('figure, article')?.querySelector('.media-trigger');
+  const trigger = dialog.closest('figure, article')?.querySelector('.media-trigger, .qa-sample-trigger');
   const closeButton = dialog.querySelector('.viewer-close');
 
   if (trigger && typeof dialog.showModal === 'function') {
