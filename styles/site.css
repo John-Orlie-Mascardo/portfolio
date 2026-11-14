@@ -1267,16 +1267,7 @@
     border: 1px solid #91b8ff66;
   }
   .portfolio-content :is(#certificates, #achievements, #seminars, #event-attendance) .certificate-preview::before {
-    position: static;
-    padding: 0;
-    transform: none;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-    color: var(--muted);
-    font-size: 10px;
-    white-space: normal;
-    opacity: 1;
+    content: none;
   }
   .portfolio-content :is(#certificates, #achievements, #seminars, #event-attendance) .certificate-preview::after {
     top: -5px;
