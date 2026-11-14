@@ -1,6 +1,59 @@
 const basePath = new URL(document.currentScript.src).pathname.replace(/\/site\.js$/, '');
 const dialogs = document.querySelectorAll('.media-dialog');
 
+const sidebar = document.querySelector('.portfolio-sidebar');
+const menuToggle = sidebar?.querySelector('.mobile-nav-toggle');
+const sectionNav = sidebar?.querySelector('.sidebar-nav');
+const menuBar = sidebar?.querySelector('.mobile-nav-bar');
+const menuClose = sidebar?.querySelector('.mobile-nav-close');
+const menuBackdrop = sidebar?.querySelector('.mobile-nav-backdrop');
+const portfolioContent = document.querySelector('.portfolio-content');
+
+if (sidebar && menuToggle && sectionNav && menuBar && menuClose && menuBackdrop) {
+  sidebar.classList.add('mobile-nav-ready');
+
+  const setMenuOpen = (isOpen, restoreFocus = false) => {
+    sidebar.classList.toggle('mobile-nav-open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} navigation menu`);
+    menuBar.inert = isOpen;
+    if (portfolioContent) portfolioContent.inert = isOpen;
+    if (isOpen) menuClose.focus({ preventScroll: true });
+    if (restoreFocus) menuToggle.focus({ preventScroll: true });
+  };
+
+  menuToggle.addEventListener('click', () => {
+    setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  sectionNav.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setMenuOpen(false, true);
+  });
+  menuClose.addEventListener('click', () => setMenuOpen(false, true));
+  menuBackdrop.addEventListener('click', () => setMenuOpen(false, true));
+  document.addEventListener('keydown', (event) => {
+    if (menuToggle.getAttribute('aria-expanded') !== 'true') return;
+    if (event.key === 'Escape') {
+      setMenuOpen(false, true);
+      return;
+    }
+    if (event.key === 'Tab') {
+      const focusable = [...sectionNav.querySelectorAll('button:not(:disabled), a[href]')];
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+  });
+  matchMedia('(min-width: 981px)').addEventListener('change', (event) => {
+    if (event.matches) setMenuOpen(false);
+  });
+}
+
 for (const dialog of dialogs) {
   const trigger = dialog.closest('figure, article')?.querySelector('.media-trigger, .qa-sample-trigger');
   const closeButton = dialog.querySelector('.viewer-close');

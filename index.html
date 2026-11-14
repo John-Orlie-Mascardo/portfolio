@@ -16,6 +16,10 @@
 <div class="halo-background portfolio-halo" aria-hidden="true"><div id="particles-js" class="halo-canvas"></div></div>
 <div class="portfolio-layout">
 <header class="site-header portfolio-sidebar">
+<div class="mobile-nav-bar">
+<a class="mobile-nav-brand" href="#home" aria-label="John Orlie Mascardo, home"><span class="wordmark">JOM<span>.</span></span><span class="mobile-nav-name">John Orlie Mascardo</span></a>
+<button class="mobile-nav-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation menu"><span class="mobile-nav-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+</div>
 <a class="wordmark" href="#home" aria-label="John Orlie Mascardo, home">JOM<span>.</span></a>
 <div class="sidebar-intro">
 <p class="eyebrow"><span class="status-dot"></span> Fourth-year IT student</p>
@@ -23,7 +27,8 @@
 <p class="sidebar-role">Aspiring QA &amp; Web Developer.</p>
 <p class="sidebar-tagline">Curious about how things work.<br>Careful about how they <em>should</em> work.</p>
 </div>
-<nav class="sidebar-nav" aria-label="Main navigation"><a href="#about">About</a>
+<div class="mobile-nav-backdrop" aria-hidden="true"></div>
+<nav class="sidebar-nav" id="site-navigation" aria-label="Main navigation"><button class="mobile-nav-close" type="button" aria-label="Close section menu"><span aria-hidden="true"></span></button><a href="#about">About</a>
 <a href="#project">Capstone</a>
 <a href="#course-projects">Course projects</a>
 <a href="#workflow">How I work</a>
@@ -984,7 +989,7 @@
 <label for="contact-message">Message</label>
 <textarea id="contact-message" name="message" rows="6" required></textarea>
 </div>
-<div class="h-captcha" data-captcha="true"></div>
+<div class="h-captcha" data-captcha="true" data-size="compact"></div>
 <button class="button primary" type="submit">Send message</button>
 <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
 </form>
@@ -995,6 +1000,7 @@
 <a class="wordmark" href="#home">JOM<span>.</span>
 </a>
 <span>© 2026 John Orlie Mascardo</span>
+<nav class="footer-socials" aria-label="Social profiles"><a href="https://github.com/John-Orlie-Mascardo" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/john-orlie-mascardo" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
 <a href="#home">Back to top <span aria-hidden="true">↑</span>
 </a>
 </footer>
