@@ -1283,3 +1283,28 @@
     right: 17px;
   }
 }
+
+.portfolio-content #event-attendance .certificate-card {
+  grid-template-columns: 44px minmax(0, 1fr);
+  min-height: 68px;
+}
+.portfolio-content #event-attendance .certificate-preview {
+  width: 44px;
+  height: 44px;
+}
+.portfolio-content #event-attendance .certificate-card-info {
+  padding: 8px 0;
+}
+@media (hover: none) {
+  .portfolio-content #event-attendance .certificate-card {
+    grid-template-columns: 100px minmax(0, 1fr);
+  }
+  .portfolio-content #event-attendance .certificate-preview {
+    width: 100px;
+    height: auto;
+  }
+  .portfolio-content #event-attendance .certificate-preview img {
+    width: 44px;
+    height: 44px;
+  }
+}
